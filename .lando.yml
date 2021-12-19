@@ -1,0 +1,30 @@
+
+name: green-circle
+
+recipe: laravel
+
+excludes:
+  - node_modules
+
+config:
+  database: mysql
+  php: 7.4
+  via: nginx
+  webroot: public
+
+proxy:
+  mailhog:
+    - mail.green-circle.lndo.site
+  pma:
+    - pma.green-circle.lndo.site
+
+services:
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+  pma:
+    type: phpmyadmin
+    ssl: true
+    hosts:
+      - database
