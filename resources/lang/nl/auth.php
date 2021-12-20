@@ -13,10 +13,8 @@ return [
     |
     */
 
-    'email' => 'E-mail',
     'login' => 'Inloggen',
     'logout' => 'Uitloggen',
-    'name' => 'Naam',
     'password' => 'Wachtwoord',
     'passwordConfirm' => 'Wachtwoord bevestigen',
     'passwordForget' => 'Wachtwoord vergeten?',

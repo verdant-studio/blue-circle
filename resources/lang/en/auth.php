@@ -13,10 +13,8 @@ return [
     |
     */
 
-    'email' => 'Email',
     'login' => 'Login',
     'logout' => 'Log out',
-    'name' => 'Name',
     'password' => 'Password',
     'passwordConfirm' => 'Confirm password',
     'passwordForget' => 'Forgot your password?',

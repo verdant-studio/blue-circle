@@ -10,12 +10,12 @@
             @csrf
 
             <div>
-                <x-jet-label for="name" value="{{ __('auth.name') }}" />
+                <x-jet-label for="name" value="{{ __('general.name') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="email" value="{{ __('auth.email') }}" />
+                <x-jet-label for="email" value="{{ __('general.email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 

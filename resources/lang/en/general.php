@@ -4,17 +4,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Language Lines
+    | General Language Lines
     |--------------------------------------------------------------------------
-    |
-    | The following language lines are used during authentication for various
-    | messages that we need to display to the user. You are free to modify
-    | these language lines according to your application's requirements.
-    |
     */
 
-    'profile' => 'Profile',
-    'profile.information' => 'Profile information',
-    'profile.informationDescription' => 'Update your account\'s profile information and email address.',
-    'profile.manageAccount' => 'Manage account',
+    'cancel' => 'Cancel',
+    'disable' => 'Disable',
+    'done' => 'Done',
+    'enable' => 'Enable',
+    'email' => 'Email',
+    'name' => 'name',
+    'save' => 'Save',
+    'saved' => 'Saved',
 ];
