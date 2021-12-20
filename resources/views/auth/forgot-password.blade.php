@@ -5,7 +5,7 @@
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('auth.passwordResetIntroText') }}
+            {{ __('auth.password-reset-intro-text') }}
         </div>
 
         @if (session('status'))
@@ -26,7 +26,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <x-jet-button>
-                    {{ __('auth.passwordResetEmailLink') }}
+                    {{ __('auth.password-reset-email-link') }}
                 </x-jet-button>
             </div>
         </form>
