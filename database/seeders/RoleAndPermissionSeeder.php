@@ -26,14 +26,20 @@ class RoleAndPermissionSeeder extends Seeder
 
         $admin = Role::create(['name' => 'admin']);
         $member = Role::create(['name' => 'member']);
+        Role::create(['name' => 'super-admin']);
 
         // =======================================================================
+
+        $admin_permissions = [
+            'edit users',
+            'read users',
+        ];
 
         $member_permissions = [
             'read users',
         ];
 
-        $admin->syncPermissions(Permission::all());
+        $admin->syncPermissions($admin_permissions);
         $member->syncPermissions($member_permissions);
     }
 }
