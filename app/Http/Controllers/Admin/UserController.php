@@ -73,7 +73,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
@@ -85,7 +87,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+
+        return redirect()->route('admin.users.index')->with(['message' => 'User ' . $user->name . ' updated successfully']);
     }
 
     /**
@@ -96,6 +101,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (auth()->id() === $id) {
+            return redirect()->route('admin.users.index')->with(['message' => 'You cannot delete yourself']);
+        }
+
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('admin.users.index')->with(['message' => 'User ' . $user->name . ' trashed successfully']);
     }
 }
