@@ -8,22 +8,26 @@
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 
-            @if (session('message'))
-                <div class="alert alert-info">{{ session('message') }}</div>
+            @if (session('success'))
+                <div class="p-3 mb-8 border rounded text-primary-800 bg-primary-100 border-primary-600">{{ session('success') }}</div>
             @endif
 
-            <div class="mb-8 overflow-hidden border-b border-gray-200 rounded-md shadow">
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
+            @if (session('error'))
+                <div class="p-3 mb-8 text-red-800 bg-red-100 border border-red-600 rounded">{{ session('error') }}</div>
+            @endif
+
+            <div class="mb-8 overflow-hidden border-b rounded-md shadow border-secondary-400">
+                <table class="min-w-full divide-y divide-secondary-400">
+                    <thead class="bg-secondary-400">
                         <tr>
-                            <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('users.name') }}</th>
-                            <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('users.role') }}</th>
-                            <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('users.created-at') }}</th>
-                            <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('users.actions') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('users.name') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('users.role') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('users.created-at') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('users.actions') }}</th>
                         </tr>
                     </thead>
 
-                    <tbody class="bg-white divide-y divide-gray-200">
+                    <tbody class="bg-white divide-y divide-secondary-400">
                     @foreach ($users as $user)
                         <tr>
                         <td class="px-6 py-4 whitespace-nowrap">
@@ -45,7 +49,7 @@
                                 <span class="sr-only">{{ __('users.edit') }}</span>
                             </a>
 
-                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('{{ __('general.are-you-sure') }}');" style="display: inline-block;">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 

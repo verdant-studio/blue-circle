@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="border-b bg-primary-600 border-primary-700">
     <!-- Primary Navigation Menu -->
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -6,14 +6,14 @@
                 <!-- Logo -->
                 <div class="flex items-center shrink-0">
                     <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block w-auto h-9" />
+                        <x-jet-application-logo class="block w-auto h-9" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('dashboard._') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
                         {{ __('users._') }}
@@ -41,7 +41,7 @@
                             <x-slot name="content">
                                 <div class="w-60">
                                     <!-- Team Management -->
-                                    <div class="block px-4 py-2 text-xs text-gray-400">
+                                    <div class="block px-4 py-2 text-xs">
                                         {{ __('Manage Team') }}
                                     </div>
 
@@ -56,10 +56,10 @@
                                         </x-jet-dropdown-link>
                                     @endcan
 
-                                    <div class="border-t border-gray-100"></div>
+                                    <div class="border-t border-secondary-400"></div>
 
                                     <!-- Team Switcher -->
-                                    <div class="block px-4 py-2 text-xs text-gray-400">
+                                    <div class="block px-4 py-2 text-xs">
                                         {{ __('Switch Teams') }}
                                     </div>
 
@@ -82,7 +82,7 @@
                                 </button>
                             @else
                                 <span class="inline-flex rounded-md">
-                                    <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none">
+                                    <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition rounded-md bg-primary-700 hover:bg-primary-800 focus:outline-none">
                                         {{ Auth::user()->name }}
 
                                         <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -95,7 +95,7 @@
 
                         <x-slot name="content">
                             <!-- Account Management -->
-                            <div class="block px-4 py-2 text-xs text-gray-400">
+                            <div class="block px-4 py-2 text-xs">
                                 {{ __('profile.manageAccount') }}
                             </div>
 
@@ -109,7 +109,7 @@
                                 </x-jet-dropdown-link>
                             @endif
 
-                            <div class="border-t border-gray-100"></div>
+                            <div class="border-t border-secondary-400"></div>
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
@@ -128,7 +128,7 @@
 
             <!-- Hamburger -->
             <div class="flex items-center -mr-2 sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 text-gray-400 transition rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500">
+                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 text-white transition rounded-md hover:bg-primary-900 focus:outline-none focus:bg-primary-900">
                     <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -142,12 +142,12 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('dashboard._') }}
             </x-jet-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
+        <div class="pt-4 pb-1 border-t border-secondary-400">
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                     <div class="mr-3 shrink-0">
@@ -156,8 +156,8 @@
                 @endif
 
                 <div>
-                    <div class="text-base font-medium text-gray-800">{{ Auth::user()->name }}</div>
-                    <div class="text-sm font-medium text-gray-500">{{ Auth::user()->email }}</div>
+                    <div class="text-base font-medium">{{ Auth::user()->name }}</div>
+                    <div class="text-sm font-medium">{{ Auth::user()->email }}</div>
                 </div>
             </div>
 
@@ -186,9 +186,9 @@
 
                 <!-- Team Management -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                    <div class="border-t border-gray-200"></div>
+                    <div class="border-t border-secondary-400"></div>
 
-                    <div class="block px-4 py-2 text-xs text-gray-400">
+                    <div class="block px-4 py-2 text-xs">
                         {{ __('Manage Team') }}
                     </div>
 
@@ -203,10 +203,10 @@
                         </x-jet-responsive-nav-link>
                     @endcan
 
-                    <div class="border-t border-gray-200"></div>
+                    <div class="border-t border-secondary-400"></div>
 
                     <!-- Team Switcher -->
-                    <div class="block px-4 py-2 text-xs text-gray-400">
+                    <div class="block px-4 py-2 text-xs">
                         {{ __('Switch Teams') }}
                     </div>
 

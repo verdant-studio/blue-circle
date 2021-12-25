@@ -8,6 +8,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
+    'are-you-sure' => 'Are you sure?',
     'cancel' => 'Cancel',
     'disable' => 'Disable',
     'done' => 'Done',

@@ -14,11 +14,11 @@
 
                 <div class="mb-8">
                     <label class="block text-sm font-medium text-gray-800 cursor-pointer" for="name">Naam</label>
-                    <input id="name" name="name" type="text" value="{{ $user->name }}" class="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                    <input id="name" name="name" type="text" value="{{ $user->name }}" class="block w-full mt-2 rounded-md shadow-sm border-secondary-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                 </div>
                 <div class="mb-8">
                     <label class="block text-sm font-medium text-gray-800 cursor-pointer" for="email">E-mail</label>
-                    <input id="email" name="email" type="email" value="{{ $user->email }}" class="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                    <input id="email" name="email" type="email" value="{{ $user->email }}" class="block w-full mt-2 rounded-md shadow-sm border-secondary-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                 </div>
 
                 <input type="submit" value="Submit" class="inline-flex justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 hover:bg-primary-700" />

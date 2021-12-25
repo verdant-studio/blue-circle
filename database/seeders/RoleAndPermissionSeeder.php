@@ -16,6 +16,7 @@ class RoleAndPermissionSeeder extends Seeder
 
         $permissions = [
             'edit users',
+            'read dashboard',
             'read users',
         ];
 
@@ -32,10 +33,12 @@ class RoleAndPermissionSeeder extends Seeder
 
         $admin_permissions = [
             'edit users',
+            'read dashboard',
             'read users',
         ];
 
         $member_permissions = [
+            'read dashboard',
             'read users',
         ];
 
