@@ -14,16 +14,16 @@ return [
     */
 
     'aria-label' => [
-        'navigation' => 'Pagination navigation',
-        'next' => 'Next page',
-        'previous' => 'Previous page',
-        'page' => 'Go to page :page',
+        'navigation' => 'Paginering navigatie',
+        'next' => 'Volgende pagina',
+        'previous' => 'Vorige pagina',
+        'page' => 'Ga naar pagina :page',
     ],
-    'of' => 'of',
-    'next' => 'Next &raquo;',
-    'previous' => '&laquo; Previous',
-    'results' => 'results',
-    'showing' => 'Showing',
-    'to' => 'to',
+    'of' => 'van',
+    'next' => 'Volgende &raquo;',
+    'previous' => '&laquo; Vorige',
+    'results' => 'resultaten',
+    'showing' => 'Toont',
+    'to' => 'tot',
 
 ];

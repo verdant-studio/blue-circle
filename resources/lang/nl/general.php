@@ -8,6 +8,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
+    'are-you-sure' => 'Weet je het zeker?',
     'cancel' => 'Annuleren',
     'disable' => 'Deactiveren',
     'done' => 'Klaar',
