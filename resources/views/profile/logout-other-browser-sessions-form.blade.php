@@ -39,7 +39,7 @@
                                     {{ $session->ip_address }},
 
                                     @if ($session->is_current_device)
-                                        <span class="text-green-500 font-semibold">{{ __('profile.browser-sessions.this-device') }}</span>
+                                        <span class="font-semibold text-primary-600">{{ __('profile.browser-sessions.this-device') }}</span>
                                     @else
                                         {{ __('profile.browser-sessions.last-active') }} {{ $session->last_active }}
                                     @endif
@@ -71,7 +71,7 @@
                 {{ __('profile.browser-sessions.password-confirm') }}
 
                 <div class="mt-4" x-data="{}" x-on:confirming-logout-other-browser-sessions.window="setTimeout(() => $refs.password.focus(), 250)">
-                    <x-jet-input type="password" class="mt-1 block w-3/4"
+                    <x-jet-input type="password" class="block w-3/4 mt-1"
                                 placeholder="{{ __('profile.browser-sessions.password') }}"
                                 x-ref="password"
                                 wire:model.defer="password"
