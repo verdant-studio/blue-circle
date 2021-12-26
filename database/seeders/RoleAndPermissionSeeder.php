@@ -49,8 +49,7 @@ class RoleAndPermissionSeeder extends Seeder
         ];
 
         $member_permissions = [
-
-            'read users',
+            'read sites',
         ];
 
         $admin->syncPermissions($admin_permissions);

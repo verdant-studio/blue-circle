@@ -41,10 +41,12 @@
                             <span class="text-gray-500">{{ $site->name }}</span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            {{ $site->category_id }}
+                            @if ($site->category)
+                                {{ $site->category->name }}
+                            @endif
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            {{ $site->user_id }}
+                            {{ $site->user->name }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             {{ $site->created_at->format('j F, Y') }}

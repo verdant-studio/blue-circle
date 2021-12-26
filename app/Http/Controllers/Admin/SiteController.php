@@ -91,6 +91,10 @@ class SiteController extends Controller
      */
     public function edit($id)
     {
+        $site = Site::findOrFail($id);
+        $categories = Category::all();
+
+        return view('admin.site.edit', compact('site', 'categories'));
     }
 
     /**
@@ -102,6 +106,14 @@ class SiteController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required|unique:categories|max:255',
+        ]);
+
+        $category = Category::findOrFail($id);
+        $category->update($request->all());
+
+        return redirect()->route('admin.sites.index')->with(['success' => __('categories.message.success-category-updated', ['category' => $category->name])]);
     }
 
     /**
