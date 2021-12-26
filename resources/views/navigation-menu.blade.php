@@ -19,7 +19,7 @@
                         {{ __('users._plural') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin.sites.index') }}" :active="request()->routeIs('admin.sites.index')">
-                        {{ __('sites._') }}
+                        {{ __('sites._plural') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin.categories.index') }}" :active="request()->routeIs('admin.categories.index')">
                         {{ __('categories._plural') }}

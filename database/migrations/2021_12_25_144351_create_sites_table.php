@@ -17,7 +17,7 @@ class CreateSitesTable extends Migration
             $table->id();
             $table->string('name', 255)->unique()->notNullable();
             $table->string('description', 160);
-            $table->foreignId('category_id')->constrained();
+            $table->foreignId('category_id')->unsigned();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

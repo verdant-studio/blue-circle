@@ -31,7 +31,7 @@
                         @endif
 
                         <div class="mb-8">
-                            <label class="block text-sm font-medium text-gray-800 cursor-pointer" for="name">{{ __('categories.name') }}</label>
+                            <label class="block mb-3 cursor-pointer" for="name">{{ __('categories.name') }}</label>
                             <input id="name" name="name" type="text" class="block w-full mt-2 rounded-md shadow-sm border-secondary-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="{{ $category->name }}">
                         </div>
                     </div>

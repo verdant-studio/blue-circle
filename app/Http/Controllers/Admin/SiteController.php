@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Site;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SiteController extends Controller
 {
@@ -40,7 +42,9 @@ class SiteController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+
+        return view('admin.site.create', compact('categories'));
     }
 
     /**
@@ -51,7 +55,21 @@ class SiteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:sites|max:255',
+            'description' => 'max:160',
+            'category' => 'required',
+        ]);
+
+        $data = new Site();
+        $data->category_id = $request->category;
+        $data->description = $request->description;
+        $data->name = $request->name;
+        $data->user_id = Auth::user()->id;
+
+        $data->save();
+
+        return redirect()->route('admin.categories.index')->with(['success' => __('categories.message.success-category-added', ['category' => $data->name])]);
     }
 
     /**
