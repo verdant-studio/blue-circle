@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h1 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('users._singular') . ' - ' . $user->name  }}
+            {{ __('categories._singular') . ' - ' . __('general.add-new') }}
         </h1>
     </x-slot>
 
@@ -9,15 +9,15 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 
             <div class="flex justify-start mb-8">
-                <x-button-link href="{{ route('admin.users.index') }}">
+                <x-button-link href="{{ route('admin.categories.index') }}">
                     {{ __('general.back') }}
                 </x-button-link>
             </div>
 
             <div class="mb-8 overflow-hidden bg-white border-b rounded-md shadow border-secondary-400">
-                <form action="{{ route('admin.users.update', $user->id) }}" method="post">
+                <form action="{{ route('admin.categories.store') }}" method="post">
                     @csrf
-                    @method('PUT')
+                    @method('POST')
 
                     <div class="px-4 py-5 bg-white shadow sm:p-6 sm:rounded-tl-md sm:rounded-tr-md">
                         @if ($errors->any())
@@ -31,12 +31,8 @@
                         @endif
 
                         <div class="mb-8">
-                            <label class="block text-sm font-medium text-gray-800 cursor-pointer" for="name">Naam</label>
-                            <input id="name" name="name" type="text" value="{{ $user->name }}" class="block w-full mt-2 rounded-md shadow-sm border-secondary-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                        </div>
-                        <div class="mb-8">
-                            <label class="block text-sm font-medium text-gray-800 cursor-pointer" for="email">E-mail</label>
-                            <input id="email" name="email" type="email" value="{{ $user->email }}" class="block w-full mt-2 rounded-md shadow-sm border-secondary-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <label class="block text-sm font-medium text-gray-800 cursor-pointer" for="name">{{ __('categories.name') }}</label>
+                            <input id="name" name="name" type="text" class="block w-full mt-2 rounded-md shadow-sm border-secondary-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                         </div>
                     </div>
 
@@ -47,7 +43,6 @@
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </x-app-layout>

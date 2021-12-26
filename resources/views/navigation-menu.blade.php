@@ -16,7 +16,13 @@
                         {{ __('dashboard._') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
-                        {{ __('users._') }}
+                        {{ __('users._plural') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('admin.sites.index') }}" :active="request()->routeIs('admin.sites.index')">
+                        {{ __('sites._') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('admin.categories.index') }}" :active="request()->routeIs('admin.categories.index')">
+                        {{ __('categories._plural') }}
                     </x-jet-nav-link>
                 </div>
             </div>

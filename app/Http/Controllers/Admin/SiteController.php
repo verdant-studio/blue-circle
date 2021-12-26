@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Site;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class SiteController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -16,10 +15,10 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('permission:create users', ['only' => ['store']]);
-        $this->middleware('permission:delete users', ['only' => ['destroy']]);
-        $this->middleware('permission:read users', ['only' => ['index', 'show']]);
-        $this->middleware('permission:update users', ['only' => ['update', 'edit']]);
+        $this->middleware('permission:create sites', ['only' => ['store']]);
+        $this->middleware('permission:delete sites', ['only' => ['destroy']]);
+        $this->middleware('permission:read sites', ['only' => ['index', 'show']]);
+        $this->middleware('permission:update sites', ['only' => ['update', 'edit']]);
     }
 
     /**
@@ -29,9 +28,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('created_at', 'asc')->paginate(2);
+        $sites = Site::orderBy('created_at', 'asc')->paginate(2);
 
-        return view('admin.user.index', compact('users'));
+        return view('admin.site.index', compact('sites'));
     }
 
     /**
@@ -74,9 +73,6 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::findOrFail($id);
-
-        return view('admin.user.edit', compact('user'));
     }
 
     /**
@@ -88,15 +84,6 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|unique:users|max:255',
-        ]);
-
-        $user = User::findOrFail($id);
-        $user->update($request->all());
-
-        return redirect()->route('admin.users.index')->with(['success' => __('users.message.success-user-updated', ['user' => $user->name])]);
     }
 
     /**
@@ -107,13 +94,5 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        if (Auth::user()->id == $id) {
-            return redirect()->route('admin.users.index')->with(['error' => __('users.message.error-cannot-delete-yourself')]);
-        }
-
-        $user = User::findOrFail($id);
-        $user->delete();
-
-        return redirect()->route('admin.users.index')->with(['success' => __('users.message.success-user-deleted', ['user' => $user->name])]);
     }
 }
