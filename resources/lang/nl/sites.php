@@ -18,6 +18,11 @@ return [
     'description' => 'Omschrijving',
     'description-max' => 'Maximaal 160 karakters',
     'edit' => 'Bewerken',
+    'message' => [
+        'success-site-added' => 'Site :site met succes aangemaakt',
+        'success-site-deleted' => 'Site :site met succes verwijdert',
+        'success-site-updated' => 'Site :site met succes geüpdatet',
+    ],
     'name' => 'Naam',
     'owner' => 'Eigenaar',
 ];

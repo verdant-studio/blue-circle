@@ -40,9 +40,7 @@
                             <span class="text-gray-500">{{ $category->name }}</span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            @foreach ($category->sites as $site)
-                                <span class="text-gray-500">{{ $site->name }}</span>
-                            @endforeach
+                            {{ count($category->sites) }}</span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             {{ $category->created_at->format('j F, Y') }}

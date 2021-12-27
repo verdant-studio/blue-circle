@@ -69,7 +69,7 @@ class SiteController extends Controller
 
         $data->save();
 
-        return redirect()->route('admin.categories.index')->with(['success' => __('categories.message.success-category-added', ['category' => $data->name])]);
+        return redirect()->route('admin.sites.index')->with(['success' => __('sites.message.success-site-added', ['site' => $data->name])]);
     }
 
     /**
@@ -106,14 +106,21 @@ class SiteController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data = Site::findOrFail($id);
+
         $request->validate([
-            'name' => 'required|unique:categories|max:255',
+            'name' => 'required|max:255|unique:sites,name,'.$data->id,
+            'description' => 'max:160',
+            'category' => 'required',
         ]);
 
-        $category = Category::findOrFail($id);
-        $category->update($request->all());
+        $data->category_id = $request->category;
+        $data->description = $request->description;
+        $data->name = $request->name;
+        $data->user_id = Auth::user()->id;
+        $data->save();
 
-        return redirect()->route('admin.sites.index')->with(['success' => __('categories.message.success-category-updated', ['category' => $category->name])]);
+        return redirect()->route('admin.sites.index')->with(['success' => __('sites.message.success-site-updated', ['site' => $data->name])]);
     }
 
     /**
@@ -124,5 +131,9 @@ class SiteController extends Controller
      */
     public function destroy($id)
     {
+        $site = Site::findOrFail($id);
+        $site->delete();
+
+        return redirect()->route('admin.sites.index')->with(['success' => __('sites.message.success-site-deleted', ['site' => $site->name])]);
     }
 }

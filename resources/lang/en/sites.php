@@ -19,5 +19,10 @@ return [
     'description-max' => 'Max 160 characters',
     'edit' => 'Edit',
     'owner' => 'Owner',
+    'message' => [
+        'success-site-added' => 'Site :site added successfully',
+        'success-site-deleted' => 'Site :site deleted successfully',
+        'success-site-updated' => 'Site :category updated successfully',
+    ],
     'name' => 'Naam',
 ];
