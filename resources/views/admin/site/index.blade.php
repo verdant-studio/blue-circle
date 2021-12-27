@@ -26,11 +26,11 @@
                 <table class="min-w-full divide-y divide-secondary-400">
                     <thead class="bg-secondary-400">
                         <tr>
-                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('sites.name') }}</th>
-                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('sites.category') }}</th>
-                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('sites.owner') }}</th>
-                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('sites.created-at') }}</th>
-                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('sites.actions') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('sites.name') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('sites.category') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('sites.owner') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('sites.created-at') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('sites.actions') }}</th>
                         </tr>
                     </thead>
 
@@ -38,7 +38,7 @@
                     @foreach ($sites as $site)
                         <tr>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <span class="text-gray-500">{{ $site->name }}</span>
+                            {{ $site->name }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             @if ($site->category)

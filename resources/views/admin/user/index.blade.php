@@ -20,10 +20,10 @@
                 <table class="min-w-full divide-y divide-secondary-400">
                     <thead class="bg-secondary-400">
                         <tr>
-                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('users.name') }}</th>
-                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('users.role') }}</th>
-                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('users.created-at') }}</th>
-                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('users.actions') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('users.name') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('users.role') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('users.created-at') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('users.actions') }}</th>
                         </tr>
                     </thead>
 
@@ -31,11 +31,11 @@
                     @foreach ($users as $user)
                         <tr>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <span class="text-gray-500">{{ $user->name }}</span>
+                            {{ $user->name }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             @foreach ($user->roles as $role)
-                                <span class="text-gray-500">{{ $role->name }}</span>
+                                {{ $role->name }}
                             @endforeach
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">

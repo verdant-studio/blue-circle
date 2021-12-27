@@ -14,6 +14,8 @@
                 </x-button-link>
             </div>
 
+            @livewire('edit-sites')
+
             <div class="mb-8 overflow-hidden bg-white border-b rounded-md shadow border-secondary-400">
                 <form action="{{ route('admin.sites.update', $site->id) }}" method="post">
                     @csrf

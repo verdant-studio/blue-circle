@@ -26,10 +26,10 @@
                 <table class="min-w-full divide-y divide-secondary-400">
                     <thead class="bg-secondary-400">
                         <tr>
-                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('categories.name') }}</th>
-                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('categories.sites-amount') }}</th>
-                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('categories.created-at') }}</th>
-                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase" scope="col">{{ __('categories.actions') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('categories.name') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('categories.sites-amount') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('categories.created-at') }}</th>
+                            <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('categories.actions') }}</th>
                         </tr>
                     </thead>
 
@@ -37,7 +37,7 @@
                     @foreach ($categories as $category)
                         <tr>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <span class="text-gray-500">{{ $category->name }}</span>
+                            {{ $category->name }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             {{ count($category->sites) }}</span>
