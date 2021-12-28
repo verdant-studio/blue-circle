@@ -4,15 +4,20 @@ namespace App\Http\Livewire\Admin\Sites;
 
 use App\Models\Category;
 use App\Models\Site;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class FormSettings extends Component
 {
+    use AuthorizesRequests;
+
     public $site_id;
 
     public $category;
+
     public $description;
+
     public $name;
 
     protected function rules()
@@ -40,6 +45,8 @@ class FormSettings extends Component
 
     public function update()
     {
+        $this->authorize('sites update');
+
         $validatedData = $this->validate();
 
         $data = Site::findOrFail($this->site_id);
@@ -54,6 +61,8 @@ class FormSettings extends Component
 
     public function render()
     {
+        $this->authorize('sites update');
+
         $categories = Category::all();
         $site = Site::findOrFail($this->site_id);
 

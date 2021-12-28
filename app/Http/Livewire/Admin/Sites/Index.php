@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Sites;
 
 use App\Models\Site;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -38,7 +39,18 @@ class Index extends Component
     {
         $this->authorize('sites read');
 
-        $sites = Site::orderBy('created_at', 'asc')->where('name', 'like', '%'.$this->search.'%')->paginate(2);
+        $user = Auth::user();
+
+        if (!$user->hasRole('super-admin')) {
+            $sites = Site::orderBy('created_at', 'asc')
+                ->where('name', 'like', '%'.$this->search.'%')
+                ->where('user_id', $user->id)
+                ->paginate(2);
+        } else {
+            $sites = Site::orderBy('created_at', 'asc')
+                ->where('name', 'like', '%'.$this->search.'%')
+                ->paginate(2);
+        }
 
         return view('livewire.admin.sites.index', compact('sites'));
     }

@@ -4,14 +4,18 @@ namespace App\Http\Livewire\Admin\Sites;
 
 use App\Models\Category;
 use App\Models\Site;
-use Illuminate\Support\Collection;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Create extends Component
 {
+    use AuthorizesRequests;
+
     public $name;
+
     public $description;
+
     public $category;
 
     protected $rules = [
@@ -36,6 +40,8 @@ class Create extends Component
 
     public function store()
     {
+        $this->authorize('sites create');
+
         $validatedData = $this->validate();
 
         $data = new Site();
@@ -51,6 +57,8 @@ class Create extends Component
 
     public function render()
     {
+        $this->authorize('sites create');
+
         $categories = Category::all();
 
         return view('livewire.admin.sites.create', compact('categories'));
