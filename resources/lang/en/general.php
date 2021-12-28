@@ -19,4 +19,5 @@ return [
     'name' => 'name',
     'save' => 'Save',
     'saved' => 'Saved',
+    'search' => 'Search',
 ];

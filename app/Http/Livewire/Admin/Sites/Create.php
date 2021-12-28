@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Sites;
 
 use App\Models\Category;
 use App\Models\Site;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -19,6 +20,15 @@ class Create extends Component
         'category' => 'required',
     ];
 
+    public function mount()
+    {
+        // set a default option
+        $data = Category::first();
+
+        $this->category = $data->id;
+    }
+
+
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
@@ -30,7 +40,7 @@ class Create extends Component
 
         $data = new Site();
         $data->category_id = $validatedData['category'];
-        $data->description = $validatedData['description'];
+        $data->description = $validatedData['description'] ?? '';
         $data->name = $validatedData['name'];
         $data->user_id = Auth::user()->id;
 

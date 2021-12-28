@@ -21,6 +21,10 @@
             </x-button-link>
         </div>
 
+        <div class="flex justify-end">
+            <input class="block w-full max-w-md mt-2 mb-8 rounded-md shadow-sm border-secondary-400 focus:border-indigo-500 focus:ring-indigo-500" placeholder="{{ __('general.search') }}" type="text" wire:model="search">
+        </div>
+
         <div class="mb-8 overflow-hidden border-b rounded-md shadow border-secondary-400">
             <table class="min-w-full divide-y divide-secondary-400">
                 <thead class="bg-secondary-400">

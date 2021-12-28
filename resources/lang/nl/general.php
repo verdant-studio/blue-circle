@@ -19,4 +19,5 @@ return [
     'name' => 'Naam',
     'save' => 'Opslaan',
     'saved' => 'Opgeslagen',
+    'search' => 'Zoeken',
 ];

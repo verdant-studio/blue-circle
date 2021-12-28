@@ -11,6 +11,18 @@ class Index extends Component
 {
     use WithPagination;
 
+    public $search;
+
+    public function paginationView()
+    {
+        return 'vendor.pagination.tailwind';
+    }
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
     public function destroy($id)
     {
         $site = Site::findOrFail($id);
@@ -21,7 +33,7 @@ class Index extends Component
 
     public function render()
     {
-        $sites = Site::orderBy('created_at', 'asc')->paginate(2);
+        $sites = Site::orderBy('created_at', 'asc')->where('name', 'like', '%'.$this->search.'%')->paginate(2);
 
         return view('livewire.admin.sites.index', compact('sites'));
     }

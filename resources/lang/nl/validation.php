@@ -81,10 +81,10 @@ return [
         'array' => 'The :attribute must not have more than :value items.',
     ],
     'max' => [
-        'numeric' => 'The :attribute must not be greater than :max.',
-        'file' => 'The :attribute must not be greater than :max kilobytes.',
-        'string' => 'The :attribute must not be greater than :max characters.',
-        'array' => 'The :attribute must not have more than :max items.',
+        'numeric' => 'De :attribute mag niet groter zijn :max.',
+        'file' => 'De :attribute mag niet groter zijn :max kilobytes.',
+        'string' => 'De :attribute mag niet langer zijn dan :max karakters.',
+        'array' => 'De :attribute mag niet groter zijn dan :max items.',
     ],
     'mimes' => 'The :attribute must be a file of type: :values.',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
@@ -122,7 +122,7 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values.',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid timezone.',
-    'unique' => 'The :attribute has already been taken.',
+    'unique' => 'De :attribute bestaat al.',
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
@@ -155,6 +155,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'category' => 'categorie',
+        'description' => 'omschrijving',
+        'name' => 'naam',
+    ],
 
 ];

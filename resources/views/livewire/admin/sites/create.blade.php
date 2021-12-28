@@ -30,7 +30,7 @@
 
                     <div class="mb-8">
                         <label class="block mb-3 cursor-pointer" for="name">{{ __('sites.name') }}</label>
-                        <input id="name" name="name" type="text" class="block w-full mt-2 rounded-md shadow-sm border-secondary-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" wire:model="name">
+                        <input id="name" name="name" type="text" class="block w-full mt-2 rounded-md shadow-sm border-secondary-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required wire:model="name">
                     </div>
 
                     <div class="mb-8">
@@ -41,9 +41,9 @@
 
                     <div class="mb-8">
                         <label class="block mb-3 cursor-pointer" for="category">{{ __('sites.category') }}</label>
-                        <select class="block w-full mt-2 rounded-md shadow-sm border-secondary-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" name="category" wire:model="category">
+                        <select autofocus class="block w-full mt-2 rounded-md shadow-sm border-secondary-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" id="category" name="category" wire:model.defer="category">
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                <option wire:key="{{ $category->id }}" value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div>
