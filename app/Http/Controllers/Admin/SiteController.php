@@ -17,10 +17,10 @@ class SiteController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('permission:create sites', ['only' => ['store']]);
-        $this->middleware('permission:delete sites', ['only' => ['destroy']]);
-        $this->middleware('permission:read sites', ['only' => ['index', 'show']]);
-        $this->middleware('permission:update sites', ['only' => ['update', 'edit']]);
+        $this->middleware('permission:sites create', ['only' => ['store']]);
+        $this->middleware('permission:sites delete', ['only' => ['destroy']]);
+        $this->middleware('permission:sites read', ['only' => ['index', 'show']]);
+        $this->middleware('permission:sites update', ['only' => ['update', 'edit']]);
     }
 
     /**
