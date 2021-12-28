@@ -25,4 +25,5 @@ return [
     ],
     'name' => 'Naam',
     'owner' => 'Eigenaar',
+    'settings' => 'Instellingen',
 ];

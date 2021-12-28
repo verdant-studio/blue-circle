@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\SiteController;
 use App\Http\Controllers\Admin\UserController;
 
 /*
@@ -26,7 +25,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardCon
 
 // Admin routes
 Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->name('admin.')->group(function () {
+    // Categories
     Route::resource('/categories', CategoryController::class);
-    Route::resource('/sites', SiteController::class);
+    // Sites
+    Route::get('/sites', \App\Http\Livewire\Admin\Sites\Index::class)->name('sites.index');
+    Route::get('/sites/create', \App\Http\Livewire\Admin\Sites\Create::class)->name('sites.create');
+    Route::get('/sites/{id}', \App\Http\Livewire\Admin\Sites\Edit::class)->name('sites.edit');
+    // Users
     Route::resource('/users', UserController::class);
 });
