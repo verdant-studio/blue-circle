@@ -28,7 +28,7 @@ class FormSettings extends Component
     {
         $data = Site::findOrFail($this->site_id);
 
-        $this->category = $data->category;
+        $this->category = $data->category_id;
         $this->description = $data->description;
         $this->name = $data->name;
     }
