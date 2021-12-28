@@ -12,18 +12,26 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('dashboard._') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
-                        {{ __('users._plural') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('admin.sites.index') }}" :active="request()->routeIs('admin.sites.index')">
-                        {{ __('sites._plural') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('admin.categories.index') }}" :active="request()->routeIs('admin.categories.index')">
-                        {{ __('categories._plural') }}
-                    </x-jet-nav-link>
+                    @can('dashboard read')
+                        <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                            {{ __('dashboard._') }}
+                        </x-jet-nav-link>
+                    @endcan
+                    @can('users read')
+                        <x-jet-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
+                            {{ __('users._plural') }}
+                        </x-jet-nav-link>
+                    @endcan
+                    @can('sites read')
+                        <x-jet-nav-link href="{{ route('admin.sites.index') }}" :active="request()->routeIs('admin.sites.index')">
+                            {{ __('sites._plural') }}
+                        </x-jet-nav-link>
+                    @endcan
+                    @can('categories read')
+                        <x-jet-nav-link href="{{ route('admin.categories.index') }}" :active="request()->routeIs('admin.categories.index')">
+                            {{ __('categories._plural') }}
+                        </x-jet-nav-link>
+                    @endcan
                 </div>
             </div>
 
