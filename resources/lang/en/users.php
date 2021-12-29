@@ -8,7 +8,8 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    '_' => 'Users',
+    '_singular' => 'User',
+    '_plural' => 'Users',
     'actions' => 'Actions',
     'created-at' => 'Created at',
     'edit' => 'Edit',

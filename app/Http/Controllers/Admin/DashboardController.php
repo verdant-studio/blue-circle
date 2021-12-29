@@ -13,10 +13,7 @@ class DashboardController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('permission:create users', ['only' => ['store']]);
-        $this->middleware('permission:delete users', ['only' => ['destroy']]);
-        $this->middleware('permission:read users', ['only' => ['index', 'show']]);
-        $this->middleware('permission:update users', ['only' => ['update', 'edit']]);
+        $this->middleware('permission:dashboard read', ['only' => ['index']]);
     }
 
     /**
