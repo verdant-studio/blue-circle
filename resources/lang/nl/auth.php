@@ -13,6 +13,7 @@ return [
     |
     */
 
+    'failed' => 'Inloggen mislukt, controleer je gegevens.',
     'login' => 'Inloggen',
     'logout' => 'Uitloggen',
     'password' => 'Wachtwoord',

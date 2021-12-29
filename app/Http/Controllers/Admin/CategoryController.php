@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -16,10 +15,10 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('permission:users create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:users delete', ['only' => ['destroy']]);
-        $this->middleware('permission:users read', ['only' => ['index', 'show']]);
-        $this->middleware('permission:users update', ['only' => ['update', 'edit']]);
+        $this->middleware('permission:categories create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:categories delete', ['only' => ['destroy']]);
+        $this->middleware('permission:categories read', ['only' => ['index', 'show']]);
+        $this->middleware('permission:categories update', ['only' => ['update', 'edit']]);
     }
 
     /**
@@ -29,9 +28,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('created_at', 'asc')->paginate(2);
+        $categories = Category::orderBy('name', 'asc')->paginate(2);
 
-        return view('admin.user.index', compact('users'));
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -41,7 +40,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
@@ -52,7 +51,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:categories|max:255',
+        ]);
+
+        $category = Category::create($request->all());
+
+        return redirect()->route('admin.categories.index')->with(['success' => __('categories.message.success-category-added', ['category' => $category->name])]);
     }
 
     /**
@@ -74,9 +79,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::findOrFail($id);
+        $category = Category::findOrFail($id);
 
-        return view('admin.user.edit', compact('user'));
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -89,14 +94,13 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|unique:users|max:255',
+            'name' => 'required|unique:categories|max:255',
         ]);
 
-        $user = User::findOrFail($id);
-        $user->update($request->all());
+        $category = Category::findOrFail($id);
+        $category->update($request->all());
 
-        return redirect()->route('admin.users.index')->with(['success' => __('users.message.success-user-updated', ['user' => $user->name])]);
+        return redirect()->route('admin.categories.index')->with(['success' => __('categories.message.success-category-updated', ['category' => $category->name])]);
     }
 
     /**
@@ -107,13 +111,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        if (Auth::user()->id == $id) {
-            return redirect()->route('admin.users.index')->with(['error' => __('users.message.error-cannot-delete-yourself')]);
-        }
+        $category = Category::findOrFail($id);
+        $category->delete();
 
-        $user = User::findOrFail($id);
-        $user->delete();
-
-        return redirect()->route('admin.users.index')->with(['success' => __('users.message.success-user-deleted', ['user' => $user->name])]);
+        return redirect()->route('admin.categories.index')->with(['success' => __('categories.message.success-category-deleted', ['category' => $category->name])]);
     }
 }

@@ -15,9 +15,22 @@ class RoleAndPermissionSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         $permissions = [
-            'edit users',
-            'read dashboard',
-            'read users',
+            'categories create',
+            'categories delete',
+            'categories read',
+            'categories update',
+
+            'dashboard read',
+
+            'sites create',
+            'sites delete',
+            'sites read',
+            'sites update',
+
+            'users create',
+            'users delete',
+            'users read',
+            'users update',
         ];
 
         foreach ($permissions as $permission) {
@@ -32,14 +45,21 @@ class RoleAndPermissionSeeder extends Seeder
         // =======================================================================
 
         $admin_permissions = [
-            'edit users',
-            'read dashboard',
-            'read users',
+            'categories read',
+
+            'dashboard read',
+
+            'sites create',
+            'sites read',
+            'sites update',
         ];
 
         $member_permissions = [
-            'read dashboard',
-            'read users',
+            'dashboard read',
+
+            'sites create',
+            'sites read',
+            'sites update',
         ];
 
         $admin->syncPermissions($admin_permissions);

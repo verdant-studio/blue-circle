@@ -13,6 +13,7 @@ return [
     |
     */
 
+    'failed' => 'Could not login please check your credentials.',
     'login' => 'Login',
     'logout' => 'Log out',
     'password' => 'Password',

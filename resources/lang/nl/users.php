@@ -8,7 +8,8 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    '_' => 'Gebruikers',
+    '_singular' => 'Gebruiker',
+    '_plural' => 'Gebruikers',
     'actions' => 'Acties',
     'created-at' => 'Aangemaakt op',
     'edit' => 'Bewerken',

@@ -8,7 +8,9 @@ return [
     |--------------------------------------------------------------------------
     */
 
+    'add-new' => 'Nieuwe toevoegen',
     'are-you-sure' => 'Weet je het zeker?',
+    'back' => 'Terug',
     'cancel' => 'Annuleren',
     'disable' => 'Deactiveren',
     'done' => 'Klaar',
@@ -17,4 +19,5 @@ return [
     'name' => 'Naam',
     'save' => 'Opslaan',
     'saved' => 'Opgeslagen',
+    'search' => 'Zoeken',
 ];
