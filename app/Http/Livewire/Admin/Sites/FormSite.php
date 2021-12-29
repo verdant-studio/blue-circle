@@ -61,6 +61,16 @@ class FormSite extends Component
         return $this->confirmingCreateBlock = false;
     }
 
+    public function destroy($id)
+    {
+        $this->authorize('sites delete');
+
+        $block = Block::findOrFail($id);
+        $block->delete();
+
+        return session()->flash('success', __('blocks.message.success-block-deleted', ['block' => $block->name]));
+    }
+
     public function render()
     {
         $this->authorize('sites read');
