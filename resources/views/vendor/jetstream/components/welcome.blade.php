@@ -8,11 +8,9 @@
         <h2>{{ __('dashboard.welcome-user', ['name' => Auth::user()->name]) }}</h2>
     </div>
 
-    <div class="mt-6 text-gray-500">
-        Laravel Jetstream provides a beautiful, robust starting point for your next Laravel application. Laravel is designed
-        to help you build your application using a development environment that is simple, powerful, and enjoyable. We believe
-        you should love expressing your creativity through programming, so we have spent time carefully crafting the Laravel
-        ecosystem to be a breath of fresh air. We hope you love it.
+    <div class="max-w-2xl mt-6">
+        Green Circle is a web application that allows you (and your visitors) to build a directory of links.
+        The software is open source and can be found at <a class="font-semibold text-primary-500 hover:text-priamry-900" href="https://github.com/verdant-studio/green-circle" rel="noreferrer noopener" target="_blank">GitHub</a>.
     </div>
 </div>
 
@@ -29,7 +27,7 @@
             </div>
 
             <a href="https://laravel.com/docs">
-                <div class="flex items-center mt-3 text-sm font-semibold text-indigo-700">
+                <div class="flex items-center mt-3 text-sm font-semibold">
                     <div>Bekijk de gebruikers</div>
 
                     <div class="ml-1 text-indigo-500">
