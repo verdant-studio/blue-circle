@@ -18,6 +18,7 @@ return [
     'description' => 'Description',
     'description-max' => 'Max 160 characters',
     'edit' => 'Edit',
+    'new-block-add' => 'Add new block',
     'message' => [
         'success-site-added' => 'Site :site added successfully',
         'success-site-deleted' => 'Site :site deleted successfully',

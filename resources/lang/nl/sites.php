@@ -18,6 +18,7 @@ return [
     'description' => 'Omschrijving',
     'description-max' => 'Maximaal 160 karakters',
     'edit' => 'Bewerken',
+    'new-block-add' => 'Nieuw blok toevoegen',
     'message' => [
         'success-site-added' => 'Site :site met succes aangemaakt',
         'success-site-deleted' => 'Site :site met succes verwijdert',
