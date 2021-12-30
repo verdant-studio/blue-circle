@@ -34,7 +34,6 @@ class Edit extends Component
         $this->emit('selectTab', $tab);
     }
 
-
     public function render()
     {
         $this->authorize('sites update');

@@ -31,7 +31,9 @@
 
         <div>
             <div aria-labelledby="site-tab" class="{{ $selectedTab === "site" ? 'block' : 'hidden' }}" role="tabpanel">
-                Site
+                @livewire('admin.sites.form-site', [
+                    'site_id' => $site->id
+                ])
             </div>
             <div aria-labelledby="settings-tab" class="{{ $selectedTab === "settings" ? 'block' : 'hidden' }}" role="tabpanel">
                 @livewire('admin.sites.form-settings', [
