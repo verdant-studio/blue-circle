@@ -23,11 +23,6 @@ class ModalEditBlock extends Component
         ];
     }
 
-    // public function mount()
-    // {
-    //     $this->name = 'test';
-    // }
-
     public function confirmUpdateBlock()
     {
         $this->resetErrorBag();
@@ -54,6 +49,8 @@ class ModalEditBlock extends Component
 
     public function render()
     {
+        $this->name = Block::where('id', $this->block->id)->first()->name;
+
         return view('livewire.admin.sites.modal-edit-block');
     }
 }
