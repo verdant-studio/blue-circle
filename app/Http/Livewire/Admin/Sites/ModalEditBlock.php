@@ -12,6 +12,8 @@ class ModalEditBlock extends Component
 
     public $name;
 
+    public $content;
+
     public $block;
 
     public $confirmingUpdateBlock = false;
@@ -20,7 +22,14 @@ class ModalEditBlock extends Component
     {
         return [
             'name' => 'required|max:255',
+            'content' => 'max:300',
         ];
+    }
+
+    public function mount()
+    {
+        $this->name = $this->block->name;
+        $this->content = $this->block->content;
     }
 
     public function confirmUpdateBlock()
@@ -40,6 +49,7 @@ class ModalEditBlock extends Component
 
         $block = Block::findOrFail($id);
         $block->name = $validatedData['name'];
+        $block->content = $validatedData['content'];
         $block->update();
 
         $this->emitTo('admin.sites.form-site', 'refreshComponent');
@@ -47,10 +57,20 @@ class ModalEditBlock extends Component
         return $this->confirmingUpdateBlock = false;
     }
 
+    public function destroy($id)
+    {
+        $this->authorize('sites delete');
+
+        $block = Block::findOrFail($id);
+        $block->delete();
+
+        $this->emitTo('admin.sites.form-site', 'refreshComponent');
+        return $this->emitTo('admin.sites.form-site', 'message', __('sites.message.success-block-deleted', ['block' => $this->name]));
+    }
+
+
     public function render()
     {
-        $this->name = Block::where('id', $this->block->id)->first()->name;
-
         return view('livewire.admin.sites.modal-edit-block');
     }
 }

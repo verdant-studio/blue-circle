@@ -21,6 +21,22 @@
                     <x-jet-input-error for="name" class="mt-2" />
                 </div>
             </div>
+
+            <div x-data="{}" x-on:confirming-block-add.window="setTimeout(() => $refs.content.focus(), 250)">
+                <div class="w-3/4 mb-8">
+                    <label class="block mb-3 cursor-pointer" for="content">
+                        {{ __('sites.content') }}
+                        <span class="text-sm italic text-secondary-900">({{ __('sites.optional') }})</span>
+                    </label>
+                    <x-textarea
+                    class="block w-full"
+                    placeholder="{{ __('sites.content') }}"
+                    x-ref="content"
+                    wire:model.defer="content"
+                    wire:keydown.enter="store" />
+                    <x-jet-input-error for="content" class="mt-2" />
+                </div>
+            </div>
         </x-slot>
 
         <x-slot name="footer">

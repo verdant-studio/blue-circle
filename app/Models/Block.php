@@ -13,6 +13,7 @@ class Block extends Model
      */
     protected $fillable = [
         'name',
+        'content',
         'site_id',
     ];
 

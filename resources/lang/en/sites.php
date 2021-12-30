@@ -15,6 +15,7 @@ return [
     'block-update' => 'Update block',
     'category' => 'Category',
     'category-select' => 'Choose a category',
+    'content' => 'Inhoud',
     'created-at' => 'Created at',
     'delete' => 'Delete',
     'description' => 'Description',
@@ -39,6 +40,7 @@ return [
         'success-site-updated' => 'Site :category updated successfully',
     ],
     'name' => 'Name',
+    'optional' => 'Optional',
     'owner' => 'Owner',
     'settings' => 'Settings',
 ];
