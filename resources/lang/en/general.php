@@ -8,10 +8,12 @@ return [
     |--------------------------------------------------------------------------
     */
 
+    'add' => 'Add',
     'add-new' => 'Add new',
     'are-you-sure' => 'Are you sure?',
     'back' => 'Terug',
     'cancel' => 'Cancel',
+    'delete' => 'Delete',
     'disable' => 'Disable',
     'done' => 'Done',
     'enable' => 'Enable',

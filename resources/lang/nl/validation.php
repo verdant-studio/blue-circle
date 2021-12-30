@@ -15,7 +15,7 @@ return [
 
     'accepted' => 'The :attribute must be accepted.',
     'accepted_if' => 'The :attribute must be accepted when :other is :value.',
-    'active_url' => 'The :attribute is not a valid URL.',
+    'active_url' => 'De :attribute is geen geldige URL.',
     'after' => 'The :attribute must be a date after :date.',
     'after_or_equal' => 'The :attribute must be a date after or equal to :date.',
     'alpha' => 'The :attribute must only contain letters.',
@@ -124,7 +124,7 @@ return [
     'timezone' => 'The :attribute must be a valid timezone.',
     'unique' => 'De :attribute bestaat al.',
     'uploaded' => 'The :attribute failed to upload.',
-    'url' => 'The :attribute must be a valid URL.',
+    'url' => 'Het :attribute veld moet een geldige URL zijn.',
     'uuid' => 'The :attribute must be a valid UUID.',
 
     /*

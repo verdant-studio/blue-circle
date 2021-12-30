@@ -13,7 +13,6 @@ class BlockLink extends Model
      */
     protected $fillable = [
         'block_id',
-        'content',
         'icon',
         'link',
         'name',

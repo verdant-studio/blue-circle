@@ -27,8 +27,8 @@ class Block extends Model
     /**
      * Get the links associated with the block.
      */
-    // public function links()
-    // {
-    //     return $this->hasMany(BlockContent::class, 'id');
-    // }
+    public function links()
+    {
+        return $this->hasMany(BlockLink::class, 'block_id', 'id');
+    }
 }
