@@ -20,4 +20,5 @@ return [
     'save' => 'Save',
     'saved' => 'Saved',
     'search' => 'Search',
+    'update' => 'Update',
 ];
