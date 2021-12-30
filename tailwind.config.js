@@ -50,6 +50,10 @@ module.exports = {
                 600: '#dc2626',
                 800: '#991b1b'
             },
+            tags: {
+                new: '#fcd34d',
+                tip: '#c4b5fd',
+            },
             transparent: 'transparent',
             black: '#000',
             white: '#fff',
