@@ -29,7 +29,9 @@ class Create extends Component
         // set a default option
         $data = Category::first();
 
-        $this->category = $data->id;
+        if ($data) {
+            $this->category = $data->id;
+        }
     }
 
 

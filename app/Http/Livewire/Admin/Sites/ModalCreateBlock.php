@@ -12,12 +12,15 @@ class ModalCreateBlock extends Component
 
     public $name;
 
+    public $content;
+
     public $site_id;
 
     protected function rules()
     {
         return [
             'name' => 'required|max:255',
+            'content' => 'max:300',
         ];
     }
 
@@ -44,6 +47,7 @@ class ModalCreateBlock extends Component
 
         $block = new Block();
         $block->name = $validatedData['name'];
+        $block->content = $validatedData['content'];
         $block->site_id = $this->site_id;
         $block->save();
 

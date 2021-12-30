@@ -16,6 +16,7 @@ class CreateBlocksTable extends Migration
         Schema::create('blocks', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255)->notNullable();
+            $table->string('content', 300)->nullable();
             $table->foreignId('site_id')->unsigned()->references('id')->on('sites')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

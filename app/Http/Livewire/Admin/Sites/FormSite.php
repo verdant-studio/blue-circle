@@ -12,16 +12,14 @@ class FormSite extends Component
 
     public $site_id;
 
-    protected $listeners = ['refreshComponent' => '$refresh'];
+    protected $listeners = [
+        'refreshComponent' => '$refresh',
+        'message' => 'showMessage'
+    ];
 
-    public function destroy($id)
+    public function showMessage($message)
     {
-        $this->authorize('sites delete');
-
-        $block = Block::findOrFail($id);
-        $block->delete();
-
-        return session()->flash('success', __('sites.message.success-block-deleted', ['block' => $block->name]));
+        return session()->flash('success', $message);
     }
 
     public function render()

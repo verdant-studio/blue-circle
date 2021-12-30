@@ -15,6 +15,7 @@ return [
     'block-update' => 'Blok bewerken',
     'category' => 'Categorie',
     'category-select' => 'Kies een categorie',
+    'content' => 'Inhoud',
     'created-at' => 'Aangemaakt op',
     'delete' => 'Verwijderen',
     'description' => 'Omschrijving',
@@ -39,6 +40,7 @@ return [
         'success-site-updated' => 'Site :site met succes geüpdatet',
     ],
     'name' => 'Naam',
+    'optional' => 'Optioneel',
     'owner' => 'Eigenaar',
     'settings' => 'Instellingen',
 ];

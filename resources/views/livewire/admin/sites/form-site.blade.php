@@ -22,20 +22,15 @@
                                 @livewire('admin.sites.modal-edit-block', ['block' => $block], key(time().$site_id))
                             </div>
                         @endcan
-
-                        @can('sites delete')
-                            <button class="hidden text-red-600 group-hover:block hover:text-red-900" wire:click="destroy({{$block->id}})">
-                                <svg class="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                </svg>
-                                <span class="sr-only">{{ __('sites.delete') }}</span>
-                            </button>
-                        @endcan
                     </div>
                 </div>
 
                 @can('sites update')
                     <div class="flex flex-col justify-between h-full p-4">
+                        @if ($block->content)
+                            <p class="mb-3">{{ $block->content }}</p>
+                        @endif
+
                         <ul class="flex-grow">
                             @foreach ($block->links()->get() as $link)
                                 <li class="relative pr-6 mb-2 group">
