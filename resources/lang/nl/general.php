@@ -20,4 +20,5 @@ return [
     'save' => 'Opslaan',
     'saved' => 'Opgeslagen',
     'search' => 'Zoeken',
+    'update' => 'Update',
 ];
