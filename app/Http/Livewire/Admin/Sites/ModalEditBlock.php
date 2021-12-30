@@ -23,6 +23,11 @@ class ModalEditBlock extends Component
         ];
     }
 
+    public function mount()
+    {
+        $this->name = $this->block->name;
+    }
+
     public function confirmUpdateBlock()
     {
         $this->resetErrorBag();
@@ -47,10 +52,21 @@ class ModalEditBlock extends Component
         return $this->confirmingUpdateBlock = false;
     }
 
+    public function destroy($id)
+    {
+        $this->authorize('sites delete');
+
+        $block = Block::findOrFail($id);
+        $block->delete();
+
+        $this->emitTo('admin.sites.form-site', 'refreshComponent');
+
+        return session()->flash('success', __('sites.message.success-block-deleted', ['block' => $this->name]));
+    }
+
+
     public function render()
     {
-        $this->name = Block::where('id', $this->block->id)->first()->name;
-
         return view('livewire.admin.sites.modal-edit-block');
     }
 }

@@ -14,16 +14,6 @@ class FormSite extends Component
 
     protected $listeners = ['refreshComponent' => '$refresh'];
 
-    public function destroy($id)
-    {
-        $this->authorize('sites delete');
-
-        $block = Block::findOrFail($id);
-        $block->delete();
-
-        return session()->flash('success', __('sites.message.success-block-deleted', ['block' => $block->name]));
-    }
-
     public function render()
     {
         $this->authorize('sites read');
