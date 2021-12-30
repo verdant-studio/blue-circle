@@ -14,7 +14,7 @@
         <x-slot name="content">
             <div class="mb-8" x-data="{}" x-on:confirming-block-update.window="setTimeout(() => $refs.name.focus(), 250)">
                 <div class="w-3/4">
-                    <label class="block mb-3 cursor-pointer" for="name">{{ __('sites.name') }}</label>
+                    <label class="block mb-3 font-normal cursor-pointer" for="name">{{ __('sites.name') }}</label>
                     <x-jet-input type="text"
                     class="block w-full"
                     placeholder="{{ __('sites.name') }}"

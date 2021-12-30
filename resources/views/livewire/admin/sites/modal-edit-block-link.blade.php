@@ -54,17 +54,22 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-jet-danger-button class="mr-2" wire:click="destroy({{$data->id}})" wire:loading.attr="disabled">
-                {{ __('general.delete') }}
-            </x-jet-danger-button>
+            <div class="flex justify-between">
+                <x-jet-danger-button class="mr-2" wire:click="destroy({{$data->id}})" wire:loading.attr="disabled">
+                    {{ __('general.delete') }}
+                </x-jet-danger-button>
 
-            <x-button class="mr-2" wire:click="$toggle('confirmingUpdateBlockLink')" wire:loading.attr="disabled">
-                {{ __('general.cancel') }}
-            </x-button>
+                <div>
+                    <x-button class="mr-2" wire:click="$toggle('confirmingUpdateBlockLink')" wire:loading.attr="disabled">
+                        {{ __('general.cancel') }}
+                    </x-button>
 
-            <x-button wire:click="update({{$data->id}})" wire:loading.attr="disabled">
-                {{ __('general.update') }}
-            </x-button>
+                    <x-button wire:click="update({{$data->id}})" wire:loading.attr="disabled">
+                        {{ __('general.update') }}
+                    </x-button>
+                </div>
+            </div>
+
         </x-slot>
     </x-modal>
 </div>
