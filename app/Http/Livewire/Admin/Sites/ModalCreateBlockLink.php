@@ -12,7 +12,7 @@ class ModalCreateBlockLink extends Component
 
     public $name;
 
-    public $icon;
+    public $icon = 'icon-none';
 
     public $link;
 
@@ -51,7 +51,7 @@ class ModalCreateBlockLink extends Component
         $block = new BlockLink();
         $block->name = $validatedData['name'];
         $block->link = $validatedData['link'];
-        $block->icon = $validatedData['icon'];
+        $block->icon = $validatedData['icon'] ?? 'icon-none';
         $block->block_id = $this->block_id;
         $block->save();
 
