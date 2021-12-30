@@ -12,7 +12,15 @@ class FormSite extends Component
 
     public $site_id;
 
-    protected $listeners = ['refreshComponent' => '$refresh'];
+    protected $listeners = [
+        'refreshComponent' => '$refresh',
+        'message' => 'showMessage'
+    ];
+
+    public function showMessage($message)
+    {
+        return session()->flash('success', $message);
+    }
 
     public function render()
     {

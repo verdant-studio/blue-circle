@@ -60,8 +60,7 @@ class ModalEditBlock extends Component
         $block->delete();
 
         $this->emitTo('admin.sites.form-site', 'refreshComponent');
-
-        return session()->flash('success', __('sites.message.success-block-deleted', ['block' => $this->name]));
+        $this->emitTo('admin.sites.form-site', 'message', __('sites.message.success-block-deleted', ['block' => $this->name]));
     }
 
 
