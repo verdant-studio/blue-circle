@@ -27,6 +27,10 @@
 
                 @can('sites update')
                     <div class="flex flex-col justify-between h-full p-4">
+                        @if ($block->content)
+                            <p class="mb-3">{{ $block->content }}</p>
+                        @endif
+
                         <ul class="flex-grow">
                             @foreach ($block->links()->get() as $link)
                                 <li class="relative pr-6 mb-2 group">
