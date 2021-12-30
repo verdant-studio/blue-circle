@@ -7,7 +7,6 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
-
     theme: {
         colors: {
             primary: {
@@ -62,6 +61,5 @@ module.exports = {
         extend: {
         },
     },
-
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };

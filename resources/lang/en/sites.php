@@ -8,11 +8,11 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    '_singular' => 'Sites',
+    '_singular' => 'Site',
     '_plural' => 'Sites',
+    'actions' => 'Actions',
     'block-add' => 'Add new block',
     'block-update' => 'Update block',
-    'actions' => 'Actions',
     'category' => 'Category',
     'category-select' => 'Choose a category',
     'created-at' => 'Created at',
@@ -20,6 +20,15 @@ return [
     'description' => 'Description',
     'description-max' => 'Max 160 characters',
     'edit' => 'Edit',
+    'icons' => [
+        '_singular' => 'Icon',
+        '_plural' => 'Icons',
+        'icon-none' => 'No icon',
+        'icon-new' => 'New',
+        'icon-tip' => 'Tip',
+    ],
+    'link' => 'Link',
+    'link-add' => 'Add new link',
     'message' => [
         'success-block-added' => 'Block :block added successfully',
         'success-block-deleted' => 'Block :block deleted successfully',

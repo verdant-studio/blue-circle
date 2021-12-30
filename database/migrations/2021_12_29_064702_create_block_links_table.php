@@ -15,6 +15,10 @@ class CreateBlockLinksTable extends Migration
     {
         Schema::create('block_links', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('block_id')->unsigned()->references('id')->on('blocks')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('icon', 160)->nullable();
+            $table->string('link')->notNullable();
+            $table->string('name')->notNullable();
             $table->timestamps();
         });
     }

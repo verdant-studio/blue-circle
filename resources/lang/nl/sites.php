@@ -20,6 +20,15 @@ return [
     'description' => 'Omschrijving',
     'description-max' => 'Maximaal 160 karakters',
     'edit' => 'Bewerken',
+    'icons' => [
+        '_singular' => 'Icoon',
+        '_plural' => 'Iconen',
+        'icon-none' => 'Geen icoon',
+        'icon-new' => 'Nieuw',
+        'icon-tip' => 'Tip',
+    ],
+    'link' => 'Link',
+    'link-add' => 'Nieuwe link toevoegen',
     'message' => [
         'success-block-added' => 'Blok :block met succes aangemaakt',
         'success-block-deleted' => 'Blok :block met succes verwijdert',
