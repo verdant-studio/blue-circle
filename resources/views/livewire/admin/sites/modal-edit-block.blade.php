@@ -13,16 +13,16 @@
 
         <x-slot name="content">
             <div class="mb-8" x-data="{}" x-on:confirming-block-update.window="setTimeout(() => $refs.name.focus(), 250)">
-                <label class="block mb-3 cursor-pointer" for="name">{{ __('sites.name') }}</label>
-
-                <x-jet-input type="text"
-                class="block w-3/4 mt-1"
-                placeholder="{{ __('sites.name') }}"
-                x-ref="name"
-                wire:model.defer="name"
-                wire:keydown.enter="update({{$block->id}})" />
-
-                <x-jet-input-error for="name" class="mt-2" />
+                <div class="w-3/4">
+                    <label class="block mb-3 cursor-pointer" for="name">{{ __('sites.name') }}</label>
+                    <x-jet-input type="text"
+                    class="block w-full"
+                    placeholder="{{ __('sites.name') }}"
+                    x-ref="name"
+                    wire:model.defer="name"
+                    wire:keydown.enter="update({{$block->id}})" />
+                    <x-jet-input-error for="name" class="mt-2" />
+                </div>
             </div>
         </x-slot>
 

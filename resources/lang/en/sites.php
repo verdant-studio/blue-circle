@@ -29,6 +29,7 @@ return [
     ],
     'link' => 'Link',
     'link-add' => 'Add new link',
+    'link-update' => 'Update link',
     'message' => [
         'success-block-added' => 'Block :block added successfully',
         'success-block-deleted' => 'Block :block deleted successfully',

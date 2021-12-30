@@ -10,10 +10,10 @@
 
         <x-slot name="content">
             <div class="mb-8" x-data="{}" x-on:confirming-block-add.window="setTimeout(() => $refs.name.focus(), 250)">
-                <div class="mb-8">
+                <div class="w-3/4 mb-8">
                     <label class="block mb-3 cursor-pointer" for="name">{{ __('sites.name') }}</label>
                     <x-jet-input type="text"
-                    class="block w-3/4"
+                    class="block w-full"
                     placeholder="{{ __('sites.name') }}"
                     x-ref="name"
                     wire:model.defer="name"

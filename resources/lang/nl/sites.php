@@ -12,7 +12,7 @@ return [
     '_plural' => 'Sites',
     'actions' => 'Acties',
     'block-add' => 'Nieuw blok toevoegen',
-    'block-update' => 'Blok updaten',
+    'block-update' => 'Blok bewerken',
     'category' => 'Categorie',
     'category-select' => 'Kies een categorie',
     'created-at' => 'Aangemaakt op',
@@ -29,6 +29,7 @@ return [
     ],
     'link' => 'Link',
     'link-add' => 'Nieuwe link toevoegen',
+    'link-update' => 'Link bewerken',
     'message' => [
         'success-block-added' => 'Blok :block met succes aangemaakt',
         'success-block-deleted' => 'Blok :block met succes verwijdert',
