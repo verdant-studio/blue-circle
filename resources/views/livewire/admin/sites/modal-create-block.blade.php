@@ -1,7 +1,7 @@
 <div>
-    <x-button-link wire:click="$toggle('confirmingCreateBlock')">
+    <x-button wire:click="$toggle('confirmingCreateBlock')">
         {{ __('sites.block-add') }}
-    </x-button-link>
+    </x-button>
 
     <x-modal wire:model="confirmingCreateBlock">
         <x-slot name="title">

@@ -51,11 +51,23 @@ class ModalEditBlockLink extends Component
 
         $validatedData = $this->validate();
 
-        $block = BlockLink::findOrFail($id);
-        $block->name = $validatedData['name'];
-        $block->link = $validatedData['link'];
-        $block->icon = $validatedData['icon'] ?? 'icon-none';
-        $block->update();
+        $link = BlockLink::findOrFail($id);
+        $link->name = $validatedData['name'];
+        $link->link = $validatedData['link'];
+        $link->icon = $validatedData['icon'] ?? 'icon-none';
+        $link->update();
+
+        $this->emitTo('admin.sites.form-site', 'refreshComponent');
+
+        return $this->confirmingUpdateBlockLink = false;
+    }
+
+    public function destroy($id)
+    {
+        $this->authorize('sites delete');
+
+        $link = BlockLink::findOrFail($id);
+        $link->delete();
 
         $this->emitTo('admin.sites.form-site', 'refreshComponent');
 

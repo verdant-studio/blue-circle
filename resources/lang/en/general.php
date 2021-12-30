@@ -13,6 +13,7 @@ return [
     'are-you-sure' => 'Are you sure?',
     'back' => 'Terug',
     'cancel' => 'Cancel',
+    'delete' => 'Delete',
     'disable' => 'Disable',
     'done' => 'Done',
     'enable' => 'Enable',
