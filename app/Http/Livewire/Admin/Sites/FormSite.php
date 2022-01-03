@@ -22,11 +22,18 @@ class FormSite extends Component
         return session()->flash('success', $message);
     }
 
+    public function updateBlockOrder($blocks)
+    {
+        foreach ($blocks as $block) {
+            Block::find($block['value'])->update(['position' => $block['order']]);
+        }
+    }
+
     public function render()
     {
         $this->authorize('sites read');
 
-        $blocks = Block::all()->where('site_id', $this->site_id);
+        $blocks = Block::where('site_id', $this->site_id)->orderBy('position')->get();
 
         return view('livewire.admin.sites.form-site', compact('blocks'));
     }

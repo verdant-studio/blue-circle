@@ -11,11 +11,11 @@
         <x-message-error>{{ session('error') }}</x-message-error>
     @endif
 
-    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <div wire:sortable="updateBlockOrder" class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         @foreach ($blocks as $block)
-            <div class="flex flex-col h-full overflow-hidden bg-white rounded-md">
+            <div wire:sortable.item="{{ $block->id }}" wire:key="block-{{ $block->id }}" class="flex flex-col h-full overflow-hidden bg-white rounded-md">
                 <div class="flex items-center justify-between px-4 py-3 font-semibold group bg-secondary-400">
-                    <span>{{ $block->name }}</span>
+                    <span wire:sortable.handle class="cursor-move">{{ $block->name }}</span>
                     <div class="flex items-center">
                         @can('sites update')
                             <div>

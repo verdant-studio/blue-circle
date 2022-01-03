@@ -14,6 +14,7 @@ class Block extends Model
     protected $fillable = [
         'name',
         'content',
+        'position',
         'site_id',
     ];
 
