@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Sites;
 
 use App\Models\Block;
+use App\Models\BlockLink;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 
@@ -26,6 +27,20 @@ class FormSite extends Component
     {
         foreach ($blocks as $block) {
             Block::find($block['value'])->update(['position' => $block['order']]);
+        }
+    }
+
+    public function updateLinkOrder($links)
+    {
+        foreach ($links as $link) {
+            foreach ($link['items'] as $item) {
+                $blockLink = BlockLink::findOrFail($item['value']);
+
+                $blockLink->update([
+                    'block_id' => $link['value'],
+                    'position' => $item['order']
+                ]);
+            }
         }
     }
 

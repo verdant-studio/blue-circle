@@ -11,7 +11,7 @@
         <x-message-error>{{ session('error') }}</x-message-error>
     @endif
 
-    <div wire:sortable="updateBlockOrder" class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <div wire:sortable="updateBlockOrder" wire:sortable-group="updateLinkOrder" class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         @foreach ($blocks as $block)
             <div wire:sortable.item="{{ $block->id }}" wire:key="block-{{ $block->id }}" class="flex flex-col h-full overflow-hidden bg-white rounded-md">
                 <div class="flex items-center justify-between px-4 py-3 font-semibold group bg-secondary-400">
@@ -31,9 +31,9 @@
                             <p class="mb-3">{{ $block->content }}</p>
                         @endif
 
-                        <ul class="flex-grow">
-                            @foreach ($block->links()->get() as $link)
-                                <li class="relative pr-6 mb-2 group">
+                        <ul wire:sortable-group.item-group="{{ $block->id }}" class="flex-grow">
+                            @foreach ($block->links()->orderBy('position')->get() as $link)
+                                <li wire:key="link-{{ $link->id }}" wire:sortable-group.item="{{ $link->id }}" class="relative pr-6 mb-2 group">
                                     <a class="text-tertiary-600 hover:text-tertiary-800" href="{{ $link->link }}" target="_blank">
                                         @if ($link->icon === 'icon-new')
                                             <span class="p-1 text-xs font-semibold text-black rounded bg-tags-new">{{ __('sites.icons.icon-new') }}</span>
@@ -42,7 +42,7 @@
                                         @endif
                                         {{ $link->name }}
                                     </a>
-                                    <div class="absolute top-0 right-0 hidden group-hover:block">
+                                    <div class="absolute top-0 right-0 z-20 hidden group-hover:block">
                                         @livewire('admin.sites.modal-edit-block-link', ['data' => $link], key(time().$site_id))
                                     </div>
                                 </li>

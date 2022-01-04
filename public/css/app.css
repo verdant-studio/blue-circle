@@ -952,6 +952,9 @@ select {
 .z-50 {
   z-index: 50;
 }
+.z-20 {
+  z-index: 20;
+}
 .col-span-6 {
   grid-column: span 6 / span 6;
 }
@@ -2102,6 +2105,10 @@ h1, h2, h3, h4, h5, h6 {
 
   .md\:grid {
     display: grid;
+  }
+
+  .md\:w-3\/4 {
+    width: 75%;
   }
 
   .md\:grid-cols-3 {

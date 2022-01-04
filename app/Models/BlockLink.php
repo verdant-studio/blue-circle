@@ -16,5 +16,6 @@ class BlockLink extends Model
         'icon',
         'link',
         'name',
+        'position',
     ];
 }

@@ -42,13 +42,6 @@ class ModalEditBlock extends Component
         $this->confirmingUpdateBlock = true;
     }
 
-    public function updateBlockOrder($blocks)
-    {
-        foreach ($blocks as $block) {
-            Block::find($block['value'])->update(['position'=>$block['order']]);
-        }
-    }
-
     public function update($id)
     {
         $this->authorize('sites update');
