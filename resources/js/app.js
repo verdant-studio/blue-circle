@@ -1,6 +1,6 @@
 require('./bootstrap');
 
-import 'livewire-sortable';
+import '@nextapps-be/livewire-sortablejs';
 import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;

@@ -946,14 +946,14 @@ select {
 .top-0 {
   top: 0px;
 }
+.-right-12 {
+  right: -3rem;
+}
 .z-0 {
   z-index: 0;
 }
 .z-50 {
   z-index: 50;
-}
-.z-20 {
-  z-index: 20;
 }
 .col-span-6 {
   grid-column: span 6 / span 6;

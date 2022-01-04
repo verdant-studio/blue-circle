@@ -42,7 +42,7 @@
                                         @endif
                                         {{ $link->name }}
                                     </a>
-                                    <div class="absolute top-0 right-0 z-20 hidden group-hover:block">
+                                    <div class="absolute top-0 right-0 z-50 hidden group-hover:block">
                                         @livewire('admin.sites.modal-edit-block-link', ['data' => $link], key(time().$site_id))
                                     </div>
                                 </li>
