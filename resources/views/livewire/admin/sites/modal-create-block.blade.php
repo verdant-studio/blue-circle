@@ -10,7 +10,7 @@
 
         <x-slot name="content">
             <div class="mb-8" x-data="{}" x-on:confirming-block-add.window="setTimeout(() => $refs.name.focus(), 250)">
-                <div class="w-3/4 mb-8">
+                <div class="mb-8 md:w-3/4">
                     <label class="block mb-3 cursor-pointer" for="name">{{ __('sites.name') }}</label>
                     <x-jet-input type="text"
                     class="block w-full"
@@ -23,7 +23,7 @@
             </div>
 
             <div x-data="{}" x-on:confirming-block-add.window="setTimeout(() => $refs.content.focus(), 250)">
-                <div class="w-3/4 mb-8">
+                <div class="mb-8 md:w-3/4">
                     <label class="block mb-3 cursor-pointer" for="content">
                         {{ __('sites.content') }}
                         <span class="text-sm italic text-secondary-900">({{ __('sites.optional') }})</span>

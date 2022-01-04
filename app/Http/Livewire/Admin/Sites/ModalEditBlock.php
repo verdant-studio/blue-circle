@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Sites;
 
 use App\Models\Block;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class ModalEditBlock extends Component
@@ -61,8 +62,11 @@ class ModalEditBlock extends Component
     {
         $this->authorize('sites delete');
 
-        $block = Block::findOrFail($id);
-        $block->delete();
+        $item = Block::findOrFail($id);
+
+        Block::where('position', '>', $item->position)->update(['position' => DB::raw('position - 1')]);
+
+        $item->delete();
 
         $this->emitTo('admin.sites.form-site', 'refreshComponent');
         return $this->emitTo('admin.sites.form-site', 'message', __('sites.message.success-block-deleted', ['block' => $this->name]));

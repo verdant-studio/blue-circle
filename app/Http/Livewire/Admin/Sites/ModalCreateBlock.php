@@ -45,10 +45,13 @@ class ModalCreateBlock extends Component
 
         $validatedData = $this->validate();
 
+        $position = Block::all()->max('position') + 1;
+
         $block = new Block();
         $block->name = $validatedData['name'];
         $block->content = $validatedData['content'];
         $block->site_id = $this->site_id;
+        $block->position = $position;
         $block->save();
 
         $this->emitTo('admin.sites.form-site', 'refreshComponent');
