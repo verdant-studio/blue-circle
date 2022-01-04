@@ -14,7 +14,7 @@
         <x-slot name="content">
             <div class="mb-8" x-data="{}" x-on:confirming-block-link-update.window="setTimeout(() => $refs.name.focus(), 250)">
 
-                <div class="w-3/4 mb-8">
+                <div class="mb-8 md:w-3/4">
                     <label class="block mb-3 cursor-pointer" for="name">{{ __('sites.name') }}</label>
                     <x-jet-input
                         type="text"
@@ -27,7 +27,7 @@
                     <x-jet-input-error for="name" class="mt-2" />
                 </div>
 
-                <div class="w-3/4 mb-8">
+                <div class="mb-8 md:w-3/4">
                     <label class="block mb-3 cursor-pointer" for="link">{{ __('sites.link') }}</label>
                     <x-jet-input
                         type="text"
@@ -40,7 +40,7 @@
                     <x-jet-input-error for="link" class="mt-2" />
                 </div>
 
-                <div class="w-3/4 mb-8">
+                <div class="mb-8 md:w-3/4">
                     <label class="block mb-3 cursor-pointer" for="icon">{{ __('sites.icons._singular') }}</label>
                     <select autofocus class="block w-full mt-2 rounded-md shadow-sm border-secondary-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" id="icon" name="icon" required wire:model.defer="icon">
                         <option value="icon-none">{{ __('sites.icons.icon-none') }}</option>

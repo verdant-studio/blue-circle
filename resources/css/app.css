@@ -12,6 +12,24 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-display;
-  @apply font-bold;
+    @apply font-display;
+    @apply font-bold;
+}
+
+.draggable-source--is-dragging {
+    @apply border-2;
+    @apply bg-secondary-200;
+    @apply border-secondary-300;
+    @apply p-4;
+    @apply rounded-lg;
+    @apply shadow-md;
+}
+
+.draggable-source--is-dragging > * {
+    @apply hidden;
+}
+
+.draggable-mirror {
+    @apply h-auto;
+    @apply w-60;
 }

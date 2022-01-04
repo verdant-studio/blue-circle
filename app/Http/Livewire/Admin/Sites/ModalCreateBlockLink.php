@@ -48,11 +48,14 @@ class ModalCreateBlockLink extends Component
 
         $validatedData = $this->validate();
 
+        $position = BlockLink::all()->max('position') + 1;
+
         $block = new BlockLink();
         $block->name = $validatedData['name'];
         $block->link = $validatedData['link'];
         $block->icon = $validatedData['icon'] ?? 'icon-none';
         $block->block_id = $this->block_id;
+        $block->position = $position;
         $block->save();
 
         $this->emitTo('admin.sites.form-site', 'refreshComponent');
