@@ -14,8 +14,20 @@
             @endif
 
             <div class="mb-8">
-                <label class="block mb-3 cursor-pointer" for="name">{{ __('sites.name') }}</label>
+                <label class="block cursor-pointer" for="name">{{ __('sites.name') }}</label>
+                <p class="block mb-3 text-sm italic text-secondary-900">{{ __('sites.name-description') }}</p>
                 <input id="name" name="name" type="text" class="block w-full mt-2 rounded-md shadow-sm border-secondary-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required value="{{ $site->name }}" wire:model="name">
+            </div>
+
+            <div class="mb-8">
+                <label class="block cursor-pointer" for="slug">{{ __('sites.slug') }}</label>
+                <p class="block mb-3 text-sm italic text-secondary-900">{{ __('sites.slug-description') }}</p>
+                <x-jet-input type="text"
+                    class="block w-full"
+                    disabled
+                    name="slug"
+                    value="{{ $site->slug }}"
+                />
             </div>
 
             <div class="mb-8">

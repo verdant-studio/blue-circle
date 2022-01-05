@@ -40,7 +40,10 @@ return [
         'success-site-updated' => 'Site :category updated successfully',
     ],
     'name' => 'Name',
+    'name-description' => 'Beware! Changing the name on a existing site may impact your SEO values!',
     'optional' => 'Optional',
     'owner' => 'Owner',
     'settings' => 'Settings',
+    'slug' => 'Slug',
+    'slug-description' => 'Automatically generated based on the site name',
 ];
