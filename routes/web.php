@@ -21,10 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/{slug}', \App\Http\Livewire\Front\Sites\Show::class);
+
 
 // Admin routes
 Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->name('admin.')->group(function () {
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Categories
     Route::resource('/categories', CategoryController::class);
     // Sites

@@ -15,6 +15,7 @@ class CreateSitesTable extends Migration
     {
         Schema::create('sites', function (Blueprint $table) {
             $table->id();
+            $table->string('slug');
             $table->string('name', 255)->unique()->notNullable();
             $table->string('description', 160);
             $table->foreignId('user_id')->constrained();
