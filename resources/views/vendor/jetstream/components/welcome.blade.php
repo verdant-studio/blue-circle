@@ -1,7 +1,7 @@
 <div class="p-6 bg-white border-b border-slate-300 sm:px-20">
     <div class="flex items-center space-x-4">
         <x-jet-application-logo class="block w-auto h-12" />
-        <h2 class="text-lg">Green Circle</h2>
+        <h2 class="text-lg">Blue Circle</h2>
     </div>
 
     <div class="mt-8 text-2xl">
@@ -9,12 +9,12 @@
     </div>
 
     <div class="max-w-2xl mt-6">
-        Green Circle is a web application that allows you (and your visitors) to build a directory of links.
-        The software is open source and can be found at <a class="font-semibold text-green-500 hover:text-priamry-900" href="https://github.com/verdant-studio/green-circle" rel="noreferrer noopener" target="_blank">GitHub</a>.
+        Blue Circle is a web application that allows you (and your visitors) to build a directory of links.
+        The software is open source and can be found at <a class="font-semibold text-green-500 hover:text-priamry-900" href="https://github.com/verdant-studio/blue-circle" rel="noreferrer noopener" target="_blank">GitHub</a>.
     </div>
 </div>
 
-<div class="grid grid-cols-1 bg-slate-100 bg-opacity-25 md:grid-cols-2">
+<div class="grid grid-cols-1 bg-opacity-25 bg-slate-100 md:grid-cols-2">
     <div class="p-6 hover:bg-slate-100">
         <div class="flex items-center">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-slate-400"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>

@@ -22,29 +22,17 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="antialiased bg-slate-50 flex min-h-screen flex-col">
-        <header>
-            @if (Route::has('login'))
-                <div class="fixed top-0 right-0 hidden px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/admin/dashboard') }}" class="text-sm text-slate-700 underline dark:text-slate-500">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-slate-700 underline dark:text-slate-500">{{ __('auth.login') }}</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-slate-700 underline dark:text-slate-500">{{ __('auth.register') }}</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-        </header>
+    <body class="flex flex-col min-h-screen antialiased bg-slate-50">
+        @livewire('front.navigation-menu')
 
         <main class="flex-1">
             {{ $slot }}
         </main>
 
-        <footer class="bg-slate-900 h-48 min-h-full mt-8 lg:mt-16">
+        <footer class="h-48 min-h-full mt-8 bg-slate-900 lg:mt-16">
             Test
         </footer>
+
+        @livewireScripts
     </body>
 </html>

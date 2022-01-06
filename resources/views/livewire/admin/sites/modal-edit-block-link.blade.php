@@ -1,5 +1,5 @@
 <div>
-    <button class="hover:text-green-900 text-green-500" wire:click="$toggle('confirmingUpdateBlockLink')">
+    <button class="text-green-500 hover:text-green-900" wire:click="$toggle('confirmingUpdateBlockLink')">
         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
         </svg>
@@ -12,7 +12,7 @@
         </x-slot>
 
         <x-slot name="content">
-            <div class="mb-8" x-data="{}" x-on:confirming-block-link-update.window="setTimeout(() => $refs.name.focus(), 250)">
+            <div class="mb-8 text-slate-900" x-data="{}" x-on:confirming-block-link-update.window="setTimeout(() => $refs.name.focus(), 250)">
 
                 <div class="mb-8 md:w-3/4">
                     <label class="block mb-3 cursor-pointer" for="name">{{ __('sites.name') }}</label>
@@ -54,19 +54,19 @@
         </x-slot>
 
         <x-slot name="footer">
-            <div class="flex justify-between">
-                <x-jet-danger-button class="mr-2" wire:click="destroy({{$data->id}})" wire:loading.attr="disabled">
+            <div class="flex flex-col space-y-2 md:space-x-2 md:space-y-0 md:flex-row md:justify-between">
+                <x-jet-danger-button wire:click="destroy({{$data->id}})" wire:loading.attr="disabled">
                     {{ __('general.delete') }}
                 </x-jet-danger-button>
 
-                <div>
-                    <x-button class="mr-2" wire:click="$toggle('confirmingUpdateBlockLink')" wire:loading.attr="disabled">
+                <div class="flex flex-col space-y-2 md:space-x-2 md:space-y-0 md:flex-row">
+                    <x-jet-button wire:click="$toggle('confirmingUpdateBlockLink')" wire:loading.attr="disabled">
                         {{ __('general.cancel') }}
-                    </x-button>
+                    </x-jet-button>
 
-                    <x-button wire:click="update({{$data->id}})" wire:loading.attr="disabled">
+                    <x-jet-button wire:click="update({{$data->id}})" wire:loading.attr="disabled">
                         {{ __('general.update') }}
-                    </x-button>
+                    </x-jet-button>
                 </div>
             </div>
 
