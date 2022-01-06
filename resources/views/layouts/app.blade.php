@@ -19,22 +19,20 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="antialiased bg-secondary-200">
+    <body class="antialiased bg-slate-50">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen">
             @livewire('navigation-menu')
 
-            <!-- Page Heading -->
             @if (isset($header))
-                <header class="shadow bg-primary-500">
+                <header class="bg-sky-700">
                     <div class="px-4 py-6 mx-auto text-white max-w-7xl sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
             @endif
 
-            <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>

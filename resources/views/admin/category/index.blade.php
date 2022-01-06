@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h1 class="text-xl font-semibold leading-tight text-gray-800">
+        <h1 class="text-xl font-semibold leading-tight text-white">
             {{ __('categories._plural') }}
         </h1>
     </x-slot>
@@ -24,9 +24,9 @@
                 @endcan
             </div>
 
-            <div class="mb-8 overflow-hidden border-b rounded-md shadow border-secondary-400">
-                <table class="min-w-full divide-y divide-secondary-400">
-                    <thead class="bg-secondary-400">
+            <div class="mb-8 overflow-hidden border-b rounded-md shadow border-slate-300">
+                <table class="min-w-full divide-y divide-slate-300">
+                    <thead class="bg-sky-600 text-white">
                         <tr>
                             <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('categories.name') }}</th>
                             <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('categories.sites-amount') }}</th>
@@ -35,7 +35,7 @@
                         </tr>
                     </thead>
 
-                    <tbody class="bg-white divide-y divide-secondary-400">
+                    <tbody class="bg-white divide-y divide-slate-300">
                     @foreach ($categories as $category)
                         <tr>
                         <td class="px-6 py-4 whitespace-nowrap">
@@ -49,7 +49,7 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             @can('categories update')
-                                <a class="inline-block hover:text-primary-900 text-primary-500" href="{{ route('admin.categories.edit', ['category' => $category]) }}">
+                                <a class="inline-block hover:text-green-900 text-green-700" href="{{ route('admin.categories.edit', ['category' => $category]) }}">
                                     <svg class="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                     </svg>

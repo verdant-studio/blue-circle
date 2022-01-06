@@ -1,5 +1,5 @@
 <div>
-    <button class="hover:text-primary-900 text-primary-500" wire:click="$toggle('confirmingUpdateBlockLink')">
+    <button class="hover:text-green-900 text-green-500" wire:click="$toggle('confirmingUpdateBlockLink')">
         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
         </svg>
@@ -42,7 +42,7 @@
 
                 <div class="mb-8 md:w-3/4">
                     <label class="block mb-3 cursor-pointer" for="icon">{{ __('sites.icons._singular') }}</label>
-                    <select autofocus class="block w-full mt-2 rounded-md shadow-sm border-secondary-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" id="icon" name="icon" required wire:model.defer="icon">
+                    <select autofocus class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" id="icon" name="icon" required wire:model.defer="icon">
                         <option value="icon-none">{{ __('sites.icons.icon-none') }}</option>
                         <option value="icon-new">{{ __('sites.icons.icon-new') }}</option>
                         <option value="icon-tip">{{ __('sites.icons.icon-tip') }}</option>

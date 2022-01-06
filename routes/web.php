@@ -17,12 +17,8 @@ use App\Http\Controllers\Admin\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', \App\Http\Livewire\Front\Home\Index::class);
 Route::get('/{slug}', \App\Http\Livewire\Front\Sites\Show::class);
-
 
 // Admin routes
 Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->name('admin.')->group(function () {

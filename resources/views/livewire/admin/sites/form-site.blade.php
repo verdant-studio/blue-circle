@@ -13,8 +13,8 @@
 
     <div wire:sortable="updateBlockOrder" wire:sortable-group="updateLinkOrder" class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         @foreach ($blocks as $block)
-            <div wire:sortable.item="{{ $block->id }}" wire:key="block-{{ $block->id }}" class="flex flex-col h-full overflow-hidden bg-white rounded-md">
-                <div class="flex items-center justify-between px-4 py-3 font-semibold group bg-secondary-400">
+            <div wire:sortable.item="{{ $block->id }}" wire:key="block-{{ $block->id }}" class="flex flex-col h-full overflow-hidden bg-white rounded-md shadow-md">
+                <div class="flex items-center justify-between px-4 py-3 font-semibold group bg-sky-600 text-white">
                     <span wire:sortable.handle class="cursor-move">{{ $block->name }}</span>
                     <div class="flex items-center">
                         @can('sites update')
@@ -34,11 +34,11 @@
                         <ul wire:sortable-group.item-group="{{ $block->id }}" class="flex-grow">
                             @foreach ($block->links()->orderBy('position')->get() as $link)
                                 <li wire:key="link-{{ $link->id }}" wire:sortable-group.item="{{ $link->id }}" class="relative pr-6 mb-2 group">
-                                    <a class="text-tertiary-600 hover:text-tertiary-800" href="{{ $link->link }}" target="_blank">
+                                    <a class="text-sky-600 hover:text-sky-800" href="{{ $link->link }}" target="_blank">
                                         @if ($link->icon === 'icon-new')
-                                            <span class="p-1 text-xs font-semibold text-black rounded bg-tags-new">{{ __('sites.icons.icon-new') }}</span>
+                                            <span class="p-1 border border-yellow-400 text-xs font-semibold text-slate-900 rounded bg-yellow-300">{{ __('sites.icons.icon-new') }}</span>
                                         @elseif ($link->icon === 'icon-tip')
-                                            <span class="p-1 text-xs font-semibold text-black rounded bg-tags-tip">{{ __('sites.icons.icon-tip') }}</span>
+                                            <span class="p-1 text-xs font-semibold text-black rounded bg-fuchsia-300 border border-fuchsia-400">{{ __('sites.icons.icon-tip') }}</span>
                                         @endif
                                         {{ $link->name }}
                                     </a>
