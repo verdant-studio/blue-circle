@@ -6,6 +6,9 @@
 
     <div class="px-4 mx-auto max-w-7xl">
         <h1 class="text-4xl mb-8 font-semibold text-sky-800">{{ $site->name }}</h1>
+        @if ($site->intro)
+            <div class="bg-white mb-8 p-4 rounded-md shadow-sm md:w-3/4">{{ $site->intro}}</div>
+        @endif
 
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             @foreach ($blocks as $block)

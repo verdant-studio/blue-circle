@@ -29,7 +29,7 @@
                 <div class="mb-8 md:w-3/4">
                     <label class="block mb-3 font-normal cursor-pointer" for="content">
                         {{ __('sites.content') }}
-                        <span class="text-sm italic text-slate-900">({{ __('sites.optional') }})</span>
+                        <span class="text-sm italic text-slate-500">({{ __('sites.optional') }})</span>
                     </label>
                     <x-textarea
                     class="block w-full"

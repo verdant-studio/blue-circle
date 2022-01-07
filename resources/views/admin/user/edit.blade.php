@@ -30,11 +30,11 @@
                             </x-message-error>
                         @endif
 
-                        <div class="mb-8">
+                        <div class="mb-8 md:w-3/4">
                             <label class="block mb-3 cursor-pointer" for="name">Naam</label>
                             <input id="name" name="name" type="text" value="{{ $user->name }}" class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                         </div>
-                        <div class="mb-8">
+                        <div class="mb-8 md:w-3/4">
                             <label class="block mb-3 cursor-pointer" for="email">E-mail</label>
                             <input id="email" name="email" type="email" value="{{ $user->email }}" class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                         </div>

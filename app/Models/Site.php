@@ -18,6 +18,7 @@ class Site extends Model
     protected $fillable = [
         'category_id',
         'description',
+        'intro',
         'name',
         'slug',
     ];

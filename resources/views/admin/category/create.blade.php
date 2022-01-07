@@ -30,7 +30,7 @@
                             </x-message-error>
                         @endif
 
-                        <div class="mb-8">
+                        <div class="mb-8 md:w-3/4">
                             <label class="block mb-3 cursor-pointer" for="name">{{ __('categories.name') }}</label>
                             <input id="name" name="name" type="text" class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                         </div>

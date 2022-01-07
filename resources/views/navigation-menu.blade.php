@@ -109,7 +109,7 @@
 
                         <x-slot name="content">
                             <!-- Account Management -->
-                            <div class="block px-4 py-2 text-xs">
+                            <div class="block px-4 py-2 text-xs text-slate-900">
                                 {{ __('profile.manageAccount') }}
                             </div>
 
@@ -155,10 +155,27 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
-                {{ __('dashboard._') }}
-            </x-jet-responsive-nav-link>
-        </div>
+            @can('dashboard read')
+                <x-jet-responsive-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
+                    {{ __('dashboard._') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            @can('users read')
+                <x-jet-responsive-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
+                    {{ __('users._plural') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            @can('sites read')
+                <x-jet-responsive-nav-link href="{{ route('admin.sites.index') }}" :active="request()->routeIs('admin.sites.index')">
+                    {{ __('sites._plural') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            @can('categories read')
+                <x-jet-responsive-nav-link href="{{ route('admin.categories.index') }}" :active="request()->routeIs('admin.categories.index')">
+                    {{ __('categories._plural') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-sky-700">

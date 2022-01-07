@@ -17,7 +17,14 @@
             <ul class="flex flex-wrap -mb-px" role="tablist">
                 <li class="mr-2" role="presentation">
                     <a href="#site" class="inline-flex items-center py-4 px-4 text-sm font-bold uppercase tracking-wider text-center rounded-t-lg border-b-2 hover:text-slate-700 hover:border-sky-900 group {{ $selectedTab === "site" ? 'bg-white text-black border-sky-700' : 'bg-slate-200 text-slate-900 border-transparent' }}" data-toggle="tab" wire:click="selectTab('site')" aria-expanded="false">
-                        <svg class="w-6 h-6 mr-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18"/></svg>  {{ __('sites._singular') }}
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18"/></svg>
+                        {{ __('sites._singular') }}
+                    </a>
+                </li>
+                <li class="mr-2" role="presentation">
+                    <a href="#layout" class="inline-flex items-center py-4 px-4 text-sm font-bold uppercase tracking-wider text-center rounded-t-lg border-b-2 hover:text-slate-700 hover:border-sky-900 group {{ $selectedTab === "layout" ? 'bg-white text-black border-sky-700' : 'bg-slate-200 text-slate-900 border-transparent' }}" data-toggle="tab" wire:click="selectTab('layout')" aria-expanded="false">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        {{ __('sites.layout') }}
                     </a>
                 </li>
                 <li class="mr-2" role="presentation">
@@ -32,6 +39,11 @@
         <div>
             <div aria-labelledby="site-tab" class="{{ $selectedTab === "site" ? 'block' : 'hidden' }}" role="tabpanel">
                 @livewire('admin.sites.form-site', [
+                    'site_id' => $site->id
+                ])
+            </div>
+            <div aria-labelledby="layout-tab" class="{{ $selectedTab === "layout" ? 'block' : 'hidden' }}" role="tabpanel">
+                @livewire('admin.sites.form-layout', [
                     'site_id' => $site->id
                 ])
             </div>
