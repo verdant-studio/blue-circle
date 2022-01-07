@@ -1,10 +1,11 @@
 <div>
-    <x-slot name="metaDescription">
-        {{ $site->description }}
+    <x-slot name="meta">
+        <title>{{ $site->name . ' | ' . config('app.name', 'Laravel') }}</title>
+        <meta name="description" content="{{ $site->description }}">
     </x-slot>
 
     <div class="px-4 mx-auto max-w-7xl">
-        <h1>{{ $site->name }}</h1>
+        <h1 class="text-4xl mb-8 font-semibold text-sky-800">{{ $site->name }}</h1>
 
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             @foreach ($blocks as $block)

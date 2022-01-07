@@ -5,8 +5,8 @@
             <div class="flex w-full">
                 <!-- Logo -->
                 <div class="flex items-center shrink-0">
-                    <a href="{{ route('home') }}">
-                        <x-jet-application-logo class="block w-auto h-9" />
+                    <a class="flex items-center" href="{{ route('home') }}">
+                        <span class="font-semibold">{{ config('app.name', 'Laravel') }}</span>
                     </a>
                 </div>
 

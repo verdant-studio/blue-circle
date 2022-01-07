@@ -5,7 +5,7 @@
 </x-slot>
 
 <div class="py-12">
-    <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4">
 
         <div class="flex justify-start mb-8">
             <x-button-link href="{{ route('admin.sites.index') }}">

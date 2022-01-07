@@ -1,6 +1,7 @@
 <div>
-    <x-slot name="metaDescription">
-        Heading
+    <x-slot name="meta">
+        <title>{{ config('app.name', 'Laravel') }}</title>
+        <meta name="description" content="">
     </x-slot>
 
     <div class="px-4 mx-auto max-w-7xl">
