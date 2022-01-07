@@ -9,7 +9,7 @@
         <div class="mx-auto max-w-7xl px-4">
 
             <div class="flex justify-start mb-8">
-                <x-button-link href="{{ route('admin.categories.index') }}">
+                <x-button-link href="{{ route('admin.categories.index') }}" outline>
                     {{ __('general.back') }}
                 </x-button-link>
             </div>

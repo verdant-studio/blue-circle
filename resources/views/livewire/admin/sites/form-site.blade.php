@@ -1,5 +1,5 @@
 <div>
-    <div class="mb-8">
+    <div class="flex justify-end mb-8">
         @livewire('admin.sites.modal-create-block', ['site_id' => $site_id])
     </div>
 
