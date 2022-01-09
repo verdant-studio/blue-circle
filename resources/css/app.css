@@ -18,8 +18,8 @@ h6 {
 
 .draggable-source--is-dragging {
     @apply border-2;
-    @apply bg-secondary-200;
-    @apply border-secondary-300;
+    @apply bg-gray-200;
+    @apply border-gray-300;
     @apply p-4;
     @apply rounded-lg;
     @apply shadow-md;

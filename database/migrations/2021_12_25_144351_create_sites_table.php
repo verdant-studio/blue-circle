@@ -18,8 +18,11 @@ class CreateSitesTable extends Migration
             $table->string('slug');
             $table->string('name', 255)->unique()->notNullable();
             $table->string('description', 160);
+            $table->string('intro', 1000)->nullable();
+
             $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->unsigned()->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('theme_id')->unsigned()->references('id')->on('themes')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

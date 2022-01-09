@@ -1,11 +1,11 @@
-<nav x-data="{ open: false }" class="border-b bg-primary-600 border-primary-700">
+<nav x-data="{ open: false }" class="text-white border-b bg-sky-800 border-sky-600">
     <!-- Primary Navigation Menu -->
-    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="px-4 mx-auto max-w-7xl">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center shrink-0">
-                    <a href="{{ route('admin.dashboard') }}">
+                    <a href="{{ route('home') }}">
                         <x-jet-application-logo class="block w-auto h-9" />
                     </a>
                 </div>
@@ -42,7 +42,7 @@
                         <x-jet-dropdown align="right" width="60">
                             <x-slot name="trigger">
                                 <span class="inline-flex rounded-md">
-                                    <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition bg-white border border-transparent rounded-md hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50">
+                                    <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 transition bg-white border border-transparent rounded-md text-slate-500 hover:bg-slate-50 hover:text-slate-700 focus:outline-none focus:bg-slate-50 active:bg-slate-50">
                                         {{ Auth::user()->currentTeam->name }}
 
                                         <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -70,7 +70,7 @@
                                         </x-jet-dropdown-link>
                                     @endcan
 
-                                    <div class="border-t border-secondary-400"></div>
+                                    <div class="border-t border-slate-300"></div>
 
                                     <!-- Team Switcher -->
                                     <div class="block px-4 py-2 text-xs">
@@ -91,12 +91,12 @@
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                <button class="flex text-sm transition border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300">
+                                <button class="flex text-sm transition border-2 border-transparent rounded-full focus:outline-none focus:border-slate-300">
                                     <img class="object-cover w-8 h-8 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                                 </button>
                             @else
                                 <span class="inline-flex rounded-md">
-                                    <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition rounded-md bg-primary-700 hover:bg-primary-800 focus:outline-none">
+                                    <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition rounded-md bg-sky-900 hover:bg-sky-700 focus:outline-none">
                                         {{ Auth::user()->name }}
 
                                         <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -109,7 +109,7 @@
 
                         <x-slot name="content">
                             <!-- Account Management -->
-                            <div class="block px-4 py-2 text-xs">
+                            <div class="block px-4 py-2 text-xs text-slate-900">
                                 {{ __('profile.manageAccount') }}
                             </div>
 
@@ -123,7 +123,7 @@
                                 </x-jet-dropdown-link>
                             @endif
 
-                            <div class="border-t border-secondary-400"></div>
+                            <div class="border-t border-slate-300"></div>
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
@@ -142,7 +142,7 @@
 
             <!-- Hamburger -->
             <div class="flex items-center -mr-2 sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 text-white transition rounded-md hover:bg-primary-900 focus:outline-none focus:bg-primary-900">
+                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 text-white transition rounded-md hover:bg-sky-700 focus:outline-none focus:bg-sky-700">
                     <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -155,13 +155,30 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
-                {{ __('dashboard._') }}
-            </x-jet-responsive-nav-link>
-        </div>
+            @can('dashboard read')
+                <x-jet-responsive-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
+                    {{ __('dashboard._') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            @can('users read')
+                <x-jet-responsive-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
+                    {{ __('users._plural') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            @can('sites read')
+                <x-jet-responsive-nav-link href="{{ route('admin.sites.index') }}" :active="request()->routeIs('admin.sites.index')">
+                    {{ __('sites._plural') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            @can('categories read')
+                <x-jet-responsive-nav-link href="{{ route('admin.categories.index') }}" :active="request()->routeIs('admin.categories.index')">
+                    {{ __('categories._plural') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            </div>
 
         <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-secondary-400">
+        <div class="pt-4 pb-1 border-t border-sky-700">
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                     <div class="mr-3 shrink-0">
@@ -200,7 +217,7 @@
 
                 <!-- Team Management -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                    <div class="border-t border-secondary-400"></div>
+                    <div class="border-t border-slate-300"></div>
 
                     <div class="block px-4 py-2 text-xs">
                         {{ __('Manage Team') }}
@@ -217,7 +234,7 @@
                         </x-jet-responsive-nav-link>
                     @endcan
 
-                    <div class="border-t border-secondary-400"></div>
+                    <div class="border-t border-slate-300"></div>
 
                     <!-- Team Switcher -->
                     <div class="block px-4 py-2 text-xs">

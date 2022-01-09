@@ -18,8 +18,10 @@ class Site extends Model
     protected $fillable = [
         'category_id',
         'description',
+        'intro',
         'name',
         'slug',
+        'theme_id',
     ];
 
     /**
@@ -46,5 +48,13 @@ class Site extends Model
     public function category()
     {
         return $this->hasOne(Category::class, 'id');
+    }
+
+    /**
+     * Get the category associated with the site.
+     */
+    public function theme()
+    {
+        return $this->hasOne(Theme::class, 'id');
     }
 }
