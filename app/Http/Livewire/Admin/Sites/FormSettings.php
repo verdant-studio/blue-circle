@@ -56,7 +56,7 @@ class FormSettings extends Component
         $data->user_id = Auth::user()->id;
         $data->save();
 
-        return redirect()->route('admin.sites.index')->with(['success' => __('sites.message.success-site-updated', ['site' => $data->name])]);
+        return redirect()->route('admin.sites.edit', $this->site_id)->with(['success' => __('sites.message.success-site-updated', ['site' => $data->name])]);
     }
 
     public function render()

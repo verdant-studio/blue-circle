@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Admin\Sites;
 
 use App\Models\Block;
 use App\Models\BlockLink;
+use App\Models\Site;
+use App\Models\Theme;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 
@@ -48,8 +50,11 @@ class FormSite extends Component
     {
         $this->authorize('sites read');
 
-        $blocks = Block::where('site_id', $this->site_id)->orderBy('position')->get();
+        $site = Site::findOrFail($this->site_id);
 
-        return view('livewire.admin.sites.form-site', compact('blocks'));
+        $blocks = Block::where('site_id', $this->site_id)->orderBy('position')->get();
+        $theme = Theme::where('id', $site->theme_id)->first();
+
+        return view('livewire.admin.sites.form-site', compact('blocks', 'theme'));
     }
 }
