@@ -9,7 +9,7 @@ class Index extends Component
 {
     public function render()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('name')->get();
 
         return view('livewire.front.home.index', compact('categories'))->layout('layouts.front');
     }
