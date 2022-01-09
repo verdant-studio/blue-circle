@@ -14,7 +14,7 @@
     <div wire:sortable="updateBlockOrder" wire:sortable-group="updateLinkOrder" class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         @foreach ($blocks as $block)
             <div wire:sortable.item="{{ $block->id }}" wire:key="block-{{ $block->id }}" class="flex flex-col h-full overflow-hidden bg-white rounded-md shadow-md">
-                <div class="flex items-center justify-between px-4 py-3 font-semibold text-white group bg-sky-600">
+                <div class="flex items-center justify-between px-4 py-3 font-semibold text-white group bg-{{ $theme->color }}">
                     <span wire:sortable.handle class="cursor-move">{{ $block->name }}</span>
                     <div class="flex items-center">
                         @can('sites update')

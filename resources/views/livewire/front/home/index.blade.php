@@ -8,7 +8,7 @@
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             @foreach ($categories as $category)
                 <div class="flex flex-col h-full overflow-hidden bg-white rounded-md shadow-md">
-                    <div class="flex items-center justify-between px-4 py-3 font-semibold group bg-sky-600 text-white">
+                    <div class="flex items-center justify-between px-4 py-3 font-semibold text-white group bg-sky-600">
                         {{ $category->name }}
                     </div>
 

@@ -21,6 +21,7 @@ class Site extends Model
         'intro',
         'name',
         'slug',
+        'theme_id',
     ];
 
     /**
@@ -47,5 +48,13 @@ class Site extends Model
     public function category()
     {
         return $this->hasOne(Category::class, 'id');
+    }
+
+    /**
+     * Get the category associated with the site.
+     */
+    public function theme()
+    {
+        return $this->hasOne(Theme::class, 'id');
     }
 }

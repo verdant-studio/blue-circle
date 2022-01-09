@@ -5,15 +5,15 @@
     </x-slot>
 
     <div class="px-4 mx-auto max-w-7xl">
-        <h1 class="text-4xl mb-8 font-semibold text-sky-800">{{ $site->name }}</h1>
+        <h1 class="mb-8 text-4xl font-semibold text-sky-800">{{ $site->name }}</h1>
         @if ($site->intro)
-            <div class="bg-white mb-8 p-4 rounded-md shadow-sm md:w-3/4">{{ $site->intro}}</div>
+            <div class="p-4 mb-8 bg-white rounded-md shadow-sm md:w-3/4">{{ $site->intro}}</div>
         @endif
 
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             @foreach ($blocks as $block)
                 <div class="flex flex-col h-full overflow-hidden bg-white rounded-md shadow-md">
-                    <div class="flex items-center justify-between px-4 py-3 font-semibold text-white group bg-sky-600">
+                    <div class="flex items-center justify-between px-4 py-3 font-semibold text-white group bg-{{ $theme->color }}">
                         {{ $block->name }}
                     </div>
 
