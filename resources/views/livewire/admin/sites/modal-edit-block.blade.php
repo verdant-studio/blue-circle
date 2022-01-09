@@ -1,5 +1,5 @@
-<div>
-    <button class="hidden text-green-500 group-hover:block hover:text-green-900" wire:click="$toggle('confirmingUpdateBlock')">
+<div class="text-stone-900">
+    <button class="hidden text-white group-hover:block hover:text-stone-300" wire:click="$toggle('confirmingUpdateBlock')">
         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
         </svg>

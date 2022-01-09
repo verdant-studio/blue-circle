@@ -34,7 +34,7 @@
                         <ul wire:sortable-group.item-group="{{ $block->id }}" class="flex-grow">
                             @foreach ($block->links()->orderBy('position')->get() as $link)
                                 <li wire:key="link-{{ $link->id }}" wire:sortable-group.item="{{ $link->id }}" class="relative pr-6 mb-2 group">
-                                    <a class="text-sky-600 hover:text-sky-800" href="{{ $link->link }}" target="_blank">
+                                    <a class="text-{{ $theme->color }} hover:text-sky-800" href="{{ $link->link }}" target="_blank">
                                         @if ($link->icon === 'icon-new')
                                             <x-label-new />
                                         @elseif ($link->icon === 'icon-tip')
