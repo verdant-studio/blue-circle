@@ -45,11 +45,11 @@ class Index extends Component
             $sites = Site::orderBy('created_at', 'asc')
                 ->where('name', 'like', '%'.$this->search.'%')
                 ->where('user_id', $user->id)
-                ->paginate(2);
+                ->paginate(config('app.pagination'));
         } else {
             $sites = Site::orderBy('created_at', 'asc')
                 ->where('name', 'like', '%'.$this->search.'%')
-                ->paginate(2);
+                ->paginate(config('app.pagination'));
         }
 
         return view('livewire.admin.sites.index', compact('sites'));

@@ -26,6 +26,10 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->name('admin.')
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Categories
     Route::resource('/categories', CategoryController::class);
+    // Pages
+    Route::get('/pages', \App\Http\Livewire\Admin\Pages\Index::class)->name('pages.index');
+    Route::get('/pages/create', \App\Http\Livewire\Admin\Pages\Create::class)->name('pages.create');
+    Route::get('/pages/{id}', \App\Http\Livewire\Admin\Pages\Edit::class)->name('pages.edit');
     // Sites
     Route::get('/sites', \App\Http\Livewire\Admin\Sites\Index::class)->name('sites.index');
     Route::get('/sites/create', \App\Http\Livewire\Admin\Sites\Create::class)->name('sites.create');

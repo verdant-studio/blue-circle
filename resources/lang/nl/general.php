@@ -8,11 +8,13 @@ return [
     |--------------------------------------------------------------------------
     */
 
+    'actions' => 'Acties',
     'add' => 'Toevoegen',
     'add-new' => 'Nieuwe toevoegen',
     'are-you-sure' => 'Weet je het zeker?',
     'back' => 'Terug',
     'cancel' => 'Annuleren',
+    'created-at' => 'Aangemaakt op',
     'delete' => 'Verwijderen',
     'disable' => 'Deactiveren',
     'done' => 'Klaar',

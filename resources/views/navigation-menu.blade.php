@@ -32,6 +32,11 @@
                             {{ __('categories._plural') }}
                         </x-jet-nav-link>
                     @endcan
+                    @can('pages read')
+                        <x-jet-nav-link href="{{ route('admin.pages.index') }}" :active="request()->routeIs('admin.pages.index')">
+                            {{ __('pages._plural') }}
+                        </x-jet-nav-link>
+                    @endcan
                 </div>
             </div>
 
@@ -173,6 +178,11 @@
             @can('categories read')
                 <x-jet-responsive-nav-link href="{{ route('admin.categories.index') }}" :active="request()->routeIs('admin.categories.index')">
                     {{ __('categories._plural') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            @can('pages read')
+                <x-jet-responsive-nav-link href="{{ route('admin.pages.index') }}" :active="request()->routeIs('admin.pages.index')">
+                    {{ __('pages._plural') }}
                 </x-jet-responsive-nav-link>
             @endcan
             </div>
