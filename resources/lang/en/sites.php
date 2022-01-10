@@ -15,10 +15,8 @@ return [
     'category' => 'Category',
     'category-select' => 'Choose a category',
     'content' => 'Inhoud',
-    'delete' => 'Delete',
     'description' => 'Description',
     'description-max' => 'Max 160 characters',
-    'edit' => 'Edit',
     'icons' => [
         '_singular' => 'Icon',
         '_plural' => 'Icons',

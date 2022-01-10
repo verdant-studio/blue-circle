@@ -15,10 +15,8 @@ return [
     'category' => 'Categorie',
     'category-select' => 'Kies een categorie',
     'content' => 'Inhoud',
-    'delete' => 'Verwijderen',
     'description' => 'Omschrijving',
     'description-max' => 'Maximaal 160 karakters',
-    'edit' => 'Bewerken',
     'icons' => [
         '_singular' => 'Icoon',
         '_plural' => 'Iconen',
