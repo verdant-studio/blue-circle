@@ -10,17 +10,13 @@ return [
 
     '_singular' => 'Site',
     '_plural' => 'Sites',
-    'actions' => 'Acties',
     'block-add' => 'Nieuw blok toevoegen',
     'block-update' => 'Blok bewerken',
     'category' => 'Categorie',
     'category-select' => 'Kies een categorie',
     'content' => 'Inhoud',
-    'created-at' => 'Aangemaakt op',
-    'delete' => 'Verwijderen',
     'description' => 'Omschrijving',
     'description-max' => 'Maximaal 160 karakters',
-    'edit' => 'Bewerken',
     'icons' => [
         '_singular' => 'Icoon',
         '_plural' => 'Iconen',

@@ -45,7 +45,7 @@ class ModalCreateBlock extends Component
 
         $validatedData = $this->validate();
 
-        $position = Block::all()->max('position') + 1;
+        $position = Block::where('site_id', $this->site_id)->get()->max('position') + 1;
 
         $block = new Block();
         $block->name = $validatedData['name'];
