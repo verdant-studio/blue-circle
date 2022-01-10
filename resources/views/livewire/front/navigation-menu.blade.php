@@ -11,10 +11,18 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden w-full space-x-8 sm:justify-between sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                        {{ __('Home') }}
-                    </x-jet-nav-link>
+                <div class="hidden w-full space-x-8 md:justify-between sm:-my-px sm:ml-10 sm:flex">
+                    <div class="flex space-x-8">
+                        <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                            {{ __('Home') }}
+                        </x-jet-nav-link>
+
+                        @foreach($pages as $page)
+                            <x-jet-nav-link href="{{ route('page', $page->slug) }}" :active="request()->routeIs('page') && request('slug') == $page->slug">
+                                {{ $page->name }}
+                            </x-jet-nav-link>
+                        @endforeach
+                    </div>
 
                     <div class="space-x-8 sm:flex">
                         @if (Route::has('login'))
@@ -56,6 +64,11 @@
             <x-jet-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                 {{ __('Home') }}
             </x-jet-responsive-nav-link>
+            @foreach($pages as $page)
+                <x-jet-responsive-nav-link href="{{ route('page', $page->slug) }}" :active="request()->routeIs('page') && request('slug') == $page->slug">
+                    {{ $page->name }}
+                </x-jet-responsive-nav-link>
+            @endforeach
         </div>
 
         <!-- Responsive Settings Options -->

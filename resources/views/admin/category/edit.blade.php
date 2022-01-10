@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="mx-auto max-w-7xl px-4">
+        <div class="px-4 mx-auto max-w-7xl">
 
             <div class="flex justify-start mb-8">
                 <x-button-link href="{{ route('admin.categories.index') }}" outline>
@@ -31,7 +31,7 @@
                         @endif
 
                         <div class="mb-8 md:w-3/4">
-                            <label class="block mb-3 cursor-pointer" for="name">{{ __('categories.name') }}</label>
+                            <label class="block mb-3 cursor-pointer" for="name">{{ __('general.name') }}</label>
                             <input id="name" name="name" type="text" class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="{{ $category->name }}">
                         </div>
                     </div>

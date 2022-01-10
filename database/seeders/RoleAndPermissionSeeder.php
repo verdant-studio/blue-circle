@@ -22,6 +22,11 @@ class RoleAndPermissionSeeder extends Seeder
 
             'dashboard read',
 
+            'pages create',
+            'pages delete',
+            'pages read',
+            'pages update',
+
             'sites create',
             'sites delete',
             'sites read',
@@ -46,6 +51,8 @@ class RoleAndPermissionSeeder extends Seeder
 
         $admin_permissions = [
             'categories read',
+
+            'pages read',
 
             'dashboard read',
 

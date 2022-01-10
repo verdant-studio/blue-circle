@@ -48,7 +48,7 @@ class ModalCreateBlockLink extends Component
 
         $validatedData = $this->validate();
 
-        $position = BlockLink::all()->max('position') + 1;
+        $position = BlockLink::where('block_id', $this->block_id)->get()->max('position') + 1;
 
         $block = new BlockLink();
         $block->name = $validatedData['name'];
