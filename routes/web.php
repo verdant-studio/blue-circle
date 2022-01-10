@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Site;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
@@ -18,7 +19,8 @@ use App\Http\Controllers\Admin\UserController;
 */
 
 Route::get('/', \App\Http\Livewire\Front\Home\Index::class)->name('home');
-Route::get('/{slug}', \App\Http\Livewire\Front\Sites\Show::class)->name('site');
+// Route::get('/{slug}', \App\Http\Livewire\Front\Sites\Show::class)->name('site');
+Route::get('/{slug}', \App\Http\Livewire\Front\Pages\Show::class)->name('page');
 
 // Admin routes
 Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->name('admin.')->group(function () {

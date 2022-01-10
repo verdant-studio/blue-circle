@@ -17,7 +17,7 @@ class CreatePagesTable extends Migration
             $table->id();
             $table->string('name', 255)->notNullable();
             $table->string('description')->notNullable();
-            $table->string('content')->nullable();
+            $table->longText('content')->nullable();
             $table->string('slug');
             $table->unsignedInteger('position');
             $table->foreignId('template_id')->unsigned()->references('id')->on('page_templates')->onDelete('cascade')->onUpdate('cascade');
