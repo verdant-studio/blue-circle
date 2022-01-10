@@ -36,7 +36,16 @@
                             {{ __('pages.content') }}
                             <span class="text-sm italic text-slate-500">({{ __('sites.optional') }})</span>
                         </label>
-                        <textarea id="editor" name="content" type="text" class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" wire:model="content"></textarea>
+                        <textarea id="content" name="content" type="text" class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" wire:model.defer="content" x-data x-init="ClassicEditor
+                        .create( $refs.content ).then(function(editor){
+                            editor.model.document.on('change:data',()=>{
+                                @this.set('content',editor.getData())
+                            })
+                        })
+                        .catch( error => {
+                            console.error( error );
+                        } );"
+                        x-ref="content"></textarea>
                         <x-jet-input-error for="content" class="mt-2" />
                     </div>
 
@@ -62,18 +71,6 @@
 
     @section('scripts')
         <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
-        <script>
-            ClassicEditor
-            .create(document.querySelector('#editor'))
-            .then(editor => {
-                editor.model.document.on('change:data', () => {
-                    @this.set('content', editor.getData());
-                });
-            })
-            .catch(error => {
-                console.error(error);
-            });
-        </script>
     @stop
 </div>
 
