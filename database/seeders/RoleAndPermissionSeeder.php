@@ -32,6 +32,8 @@ class RoleAndPermissionSeeder extends Seeder
             'sites read',
             'sites update',
 
+            'stats read',
+
             'users create',
             'users delete',
             'users read',
@@ -59,6 +61,8 @@ class RoleAndPermissionSeeder extends Seeder
             'sites create',
             'sites read',
             'sites update',
+
+            'stats read',
         ];
 
         $member_permissions = [
