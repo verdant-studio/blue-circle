@@ -58,20 +58,20 @@ class Stats extends Component
         // $pageViews = $analyticsData['totalsForAllResults']['ga:pageviews'];
         $statistics = [
             'referrers' => Analytics::fetchTopReferrers($this->period, $this->limit),
-            'browsers' => Analytics::fetchTopBrowsers($this->period, $this->limit),
+            //'browsers' => Analytics::fetchTopBrowsers($this->period, $this->limit),
             'pages' => Analytics::fetchMostVisitedPages($this->period, $this->limit),
             'total_visits' => $this->getTotalVisits(),
-            'landings' => $this->getLandings(),
-            'exits' => $this->getExits(),
-            'times' => $this->getTimeOnPages(),
-            'sources' => $this->getSources(),
-            'ops' => $this->getOperatingSystems(),
-            'browsers' => $this->getBrowsers(),
-            'countries' => $this->getCountries(),
-            'visits' => $this->getDailyVisits(),
-            'regions' => $this->getRegions(),
-            'keywords' => $this->getTopKeywords(),
-            'averages' => $this->getAverages()
+            // 'landings' => $this->getLandings(),
+            // 'exits' => $this->getExits(),
+            // 'times' => $this->getTimeOnPages(),
+            // 'sources' => $this->getSources(),
+            // 'ops' => $this->getOperatingSystems(),
+            // 'browsers' => $this->getBrowsers(),
+            // 'countries' => $this->getCountries(),
+            // 'visits' => $this->getDailyVisits(),
+            // 'regions' => $this->getRegions(),
+            // 'keywords' => $this->getTopKeywords(),
+            // 'averages' => $this->getAverages()
         ];
 
         return view('livewire.admin.components.stats', compact('statistics'));
