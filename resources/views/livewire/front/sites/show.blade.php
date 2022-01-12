@@ -14,7 +14,7 @@ use Illuminate\Support\Arr;
             <div class="p-4 mb-8 bg-white rounded-md shadow-sm md:w-3/4">{{ $site->intro}}</div>
         @endif
 
-        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div class="grid gap-4 mb-8 md:grid-cols-2 lg:grid-cols-4">
             @foreach ($blocks as $block)
                 <div class="flex flex-col h-full overflow-hidden bg-white rounded-md shadow-md">
                     <div class="flex items-center justify-between px-4 py-3 font-semibold text-white group bg-{{ $theme->color }}">
@@ -45,27 +45,7 @@ use Illuminate\Support\Arr;
             @endforeach
         </div>
 
-        <div class="p-4 bg-white rounded-md shadow-md">
-            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-                @foreach ($products as $product)
-                    @foreach ($product['urls'] as $url)
-                        @if ($url['key'] === 'DESKTOP')
-                            <a href="{{ $url['value'] }}" class="flex flex-col group" target="_blank">
-                                @foreach ($product['images'] as $image)
-                                    @if ($image['key'] === 'M')
-                                        <img src="{{ $image['url'] }}" alt="{{ $product['title'] }}" class="object-contain w-full h-full mb-3 max-h-20">
-                                    @endif
-                                @endforeach
-                                <div class="text-sm group-hover:text-sky-600">{{ $product['title'] }}</div>
-                            </a>
-                        @endif
-                    @endforeach
-                @endforeach
-            </div>
-            <div class="flex justify-end mt-3">
-                <img class="h-6" src="{{ asset('/img/bol-logo.png') }}">
-            </div>
-        </div>
-    </div>
+        @livewire('front.components.affiliate-products', ['site' => $site])
 
+    </div>
 </div>
