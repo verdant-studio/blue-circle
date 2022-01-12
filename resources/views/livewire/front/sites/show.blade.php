@@ -1,3 +1,7 @@
+@php
+use Illuminate\Support\Arr;
+@endphp
+
 <div>
     <x-slot name="meta">
         <title>{{ $site->name . ' | ' . config('app.name', 'Laravel') }}</title>
@@ -10,7 +14,7 @@
             <div class="p-4 mb-8 bg-white rounded-md shadow-sm md:w-3/4">{{ $site->intro}}</div>
         @endif
 
-        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div class="grid gap-4 mb-8 md:grid-cols-2 lg:grid-cols-4">
             @foreach ($blocks as $block)
                 <div class="flex flex-col h-full overflow-hidden bg-white rounded-md shadow-md">
                     <div class="flex items-center justify-between px-4 py-3 font-semibold text-white group bg-{{ $theme->color }}">
@@ -40,5 +44,8 @@
                 </div>
             @endforeach
         </div>
+
+        @livewire('front.components.affiliate-products', ['site' => $site])
+
     </div>
 </div>

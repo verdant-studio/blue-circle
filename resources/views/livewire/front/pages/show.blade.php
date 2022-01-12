@@ -9,7 +9,7 @@
 
         @if ($template->slug === 'weather')
         <div class="grid gap-4 md:grid-cols-2">
-            <div class="prose md:prose-lg lg:prose-xl">
+            <div class="prose md:prose-lg">
                 {!! $page->content !!}
             </div>
             <div class="bg-white rounded-md shadow-md">
@@ -17,7 +17,7 @@
             </div>
         </div>
         @else
-        <div class="prose md:prose-lg lg:prose-xl">
+        <div class="prose md:prose-lg">
             {!! $page->content !!}
         </div>
         @endif
