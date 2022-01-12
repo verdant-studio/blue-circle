@@ -16,4 +16,4 @@ yarn-error.log
 
 # Custom
 .DS_Store
-storage/app/analytics/service-account-credentials.json
+storage/app/analytics
