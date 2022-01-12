@@ -1,5 +1,5 @@
 
-name: green-circle
+name: blue-circle
 
 recipe: laravel
 
@@ -14,9 +14,9 @@ config:
 
 proxy:
   mailhog:
-    - mail.green-circle.lndo.site
+    - mail.blue-circle.lndo.site
   pma:
-    - pma.green-circle.lndo.site
+    - pma.blue-circle.lndo.site
 
 services:
   mailhog:
