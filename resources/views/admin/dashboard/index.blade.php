@@ -7,11 +7,9 @@
         </x-slot>
     </div>
 
-    <div class="mb-4 md:mb-8">
+    <div class="mb-8 md:mb-16">
         <div class="px-4 mx-auto max-w-7xl">
-            <div class="overflow-hidden bg-white shadow-md sm:rounded-lg">
-                <x-jet-welcome />
-            </div>
+            <x-jet-welcome />
         </div>
     </div>
 

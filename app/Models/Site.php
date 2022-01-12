@@ -57,4 +57,21 @@ class Site extends Model
     {
         return $this->hasOne(Theme::class, 'id');
     }
+
+    /**
+     * Search for products related to the site.
+     */
+    public static function getSearchProducts($query, $limit)
+    {
+        $key = env('BOL_API_KEY');
+
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('GET', 'https://api.bol.com/catalog/v4/search/?q='.$query.'&offset=0&limit='.$limit.'&dataoutput=products&apikey='.$key.'&format=json');
+
+        if ($response->getStatusCode() == 200) {
+            $data = json_decode($response->getBody()->getContents(), true);
+
+            return $data['products'];
+        }
+    }
 }
