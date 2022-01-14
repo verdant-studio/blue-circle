@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Setting;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
@@ -63,15 +64,24 @@ class Site extends Model
      */
     public static function getSearchProducts($query, $limit)
     {
-        $key = env('BOL_API_KEY');
+        $settings = Setting::first();
+
+        $key = $settings->bol_com_api_key;
 
         $client = new \GuzzleHttp\Client();
-        $response = $client->request('GET', 'https://api.bol.com/catalog/v4/search/?q='.$query.'&offset=0&limit='.$limit.'&dataoutput=products&apikey='.$key.'&format=json');
 
-        if ($response->getStatusCode() == 200) {
-            $data = json_decode($response->getBody()->getContents(), true);
+        try {
+            $response = $client->request('GET', 'https://api.bol.com/catalog/v4/search/?q='.$query.'&offset=0&limit='.$limit.'&dataoutput=products&apikey='.$key.'&format=json');
 
-            return $data['products'];
+            if ($response->getStatusCode() == 200) {
+                $data = json_decode($response->getBody()->getContents(), true);
+
+                return collect($data['products']);
+            }
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+
+            return collect([]);
         }
     }
 }

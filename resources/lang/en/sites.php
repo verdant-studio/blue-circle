@@ -40,7 +40,6 @@ return [
     ],
     'name' => 'Name',
     'name-description' => 'Beware! Changing the name on a existing site may impact your SEO values!',
-    'optional' => 'Optional',
     'owner' => 'Owner',
     'settings' => 'Settings',
     'slug' => 'Slug',

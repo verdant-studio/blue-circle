@@ -40,7 +40,6 @@ return [
     ],
     'name' => 'Naam',
     'name-description' => 'Let op! Wanneer je de naam van een bestaande site wijzigt kan dit impact hebben op je SEO waardes!',
-    'optional' => 'Optioneel',
     'owner' => 'Eigenaar',
     'settings' => 'Instellingen',
     'slug' => 'Slug',

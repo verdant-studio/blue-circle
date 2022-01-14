@@ -21,6 +21,7 @@ return [
     'edit' => 'Edit',
     'enable' => 'Enable',
     'email' => 'Email',
+    'optional' => 'Optional',
     'move' => 'Move',
     'name' => 'name',
     'save' => 'Save',
