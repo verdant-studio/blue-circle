@@ -16,7 +16,7 @@
             <div class="mb-8 md:w-3/4">
                 <label class="block font-normal cursor-pointer" for="intro">
                     {{ __('sites.intro') }}
-                    <span class="text-sm italic text-slate-500">({{ __('sites.optional') }})</span>
+                    <span class="text-sm italic text-slate-500">({{ __('general.optional') }})</span>
                 </label>
                 <p class="block mb-3 text-sm italic text-slate-700">{{ __('sites.intro-description') }}</p>
                 <x-textarea
