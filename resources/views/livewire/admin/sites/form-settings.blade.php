@@ -33,7 +33,7 @@
             <div class="mb-8 md:w-3/4">
                 <label class="block font-normal cursor-pointer" for="description">
                     {{ __('sites.description') }}
-                    <span class="text-sm italic text-slate-500">({{ __('sites.optional') }})</span>
+                    <span class="text-sm italic text-slate-500">({{ __('general.optional') }})</span>
                 </label>
                 <p class="block mb-3 text-sm italic text-slate-700">{{ __('sites.description-max') }}</p>
                 <input id="description" name="description" type="text" class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="{{ $site->description }}" wire:model="description">

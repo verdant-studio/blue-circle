@@ -8,6 +8,9 @@ composer i && npm i
 
 # migrate and seed database
 php artisan migrate:fresh --seed
+
+# create .env file and set database credentials
+cp .env.example .env
 ```
 
 ## Getting started

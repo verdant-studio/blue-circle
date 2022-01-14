@@ -27,6 +27,9 @@ class RoleAndPermissionSeeder extends Seeder
             'pages read',
             'pages update',
 
+            'settings read',
+            'settings update',
+
             'sites create',
             'sites delete',
             'sites read',
@@ -57,6 +60,8 @@ class RoleAndPermissionSeeder extends Seeder
             'pages read',
 
             'dashboard read',
+
+            'settings read',
 
             'sites create',
             'sites read',

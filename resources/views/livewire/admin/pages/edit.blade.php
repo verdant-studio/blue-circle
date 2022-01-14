@@ -26,29 +26,29 @@
                 @csrf
 
                 <div class="px-4 py-5 bg-white shadow sm:p-6 sm:rounded-tl-md sm:rounded-tr-md">
-                    <div class="mb-8">
+                    <div class="mb-8 md:w-3/4">
                         <label class="block mb-3 cursor-pointer" for="name">{{ __('general.name') }}</label>
                         <input id="name" name="name" type="text" class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" wire:model="name">
                         <x-jet-input-error for="name" class="mt-2" />
                     </div>
 
-                    <div class="mb-8">
+                    <div class="mb-8 md:w-3/4">
                         <label class="block cursor-pointer" for="description">{{ __('pages.description') }}</label>
                         <p class="block mb-3 text-sm italic text-slate-700">{{ __('pages.description-max') }}</p>
                         <input id="description" name="description" type="text" class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" wire:model="description">
                         <x-jet-input-error for="description" class="mt-2" />
                     </div>
 
-                    <div class="mb-8" wire:ignore>
+                    <div class="mb-8 md:w-3/4" wire:ignore>
                         <label class="block mb-3 cursor-pointer" for="content">
                             {{ __('pages.content') }}
-                            <span class="text-sm italic text-slate-500">({{ __('sites.optional') }})</span>
+                            <span class="text-sm italic text-slate-500">({{ __('general.optional') }})</span>
                         </label>
                         <textarea id="editor" name="content" type="text" class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" wire:model="content">{{ $content }}</textarea>
                         <x-jet-input-error for="content" class="mt-2" />
                     </div>
 
-                    <div class="mb-8">
+                    <div class="mb-8 md:w-3/4">
                         <label class="block mb-3 cursor-pointer" for="template">{{ __('pages.templates._singular') }}</label>
                         <select class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" id="template" name="template" wire:model="template">
                             @foreach ($templates as $template)

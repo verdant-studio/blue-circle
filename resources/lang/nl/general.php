@@ -21,6 +21,7 @@ return [
     'edit' => 'Bewerken',
     'enable' => 'Activeren',
     'email' => 'E-mail',
+    'optional' => 'Optioneel',
     'move' => 'Verplaatsen',
     'name' => 'Naam',
     'save' => 'Opslaan',

@@ -37,6 +37,11 @@
                             {{ __('pages._plural') }}
                         </x-jet-nav-link>
                     @endcan
+                    @can('settings read')
+                        <x-jet-nav-link href="{{ route('admin.settings.show') }}" :active="request()->routeIs('admin.settings.show')">
+                            {{ __('settings._plural') }}
+                        </x-jet-nav-link>
+                    @endcan
                 </div>
             </div>
 
@@ -185,7 +190,12 @@
                     {{ __('pages._plural') }}
                 </x-jet-responsive-nav-link>
             @endcan
-            </div>
+            @can('settings read')
+                <x-jet-responsive-nav-link href="{{ route('admin.settings.show') }}" :active="request()->routeIs('admin.settings.show')">
+                    {{ __('settings._plural') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+        </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-sky-700">
