@@ -48,7 +48,7 @@ class Site extends Model
      */
     public function category()
     {
-        return $this->hasOne(Category::class, 'id');
+        return $this->belongsTo(Category::class);
     }
 
     /**
@@ -66,7 +66,7 @@ class Site extends Model
     {
         $settings = Setting::first();
 
-        $key = $settings->bol_com_api_key;
+        $key = $settings->bol_com_api_key ?? null;
 
         $client = new \GuzzleHttp\Client();
 

@@ -46,9 +46,7 @@
                             {{ $site->name }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            @if ($site->category)
-                                {{ $site->category->name }}
-                            @endif
+                            {{ $site->category->name }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             {{ $site->user->name }}
