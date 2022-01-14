@@ -26,8 +26,8 @@ class Show extends Component
     {
         $data = Setting::first();
 
-        $this->bol_com_api_key = $data->bol_com_api_key;
-        $this->google_analytics_id = $data->google_analytics_id;
+        $this->bol_com_api_key = $data->bol_com_api_key ?? null;
+        $this->google_analytics_id = $data->google_analytics_id ?? null;
     }
 
 

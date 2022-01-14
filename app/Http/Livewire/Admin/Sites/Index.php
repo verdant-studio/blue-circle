@@ -42,12 +42,12 @@ class Index extends Component
         $user = Auth::user();
 
         if (!$user->hasRole('super-admin')) {
-            $sites = Site::orderBy('created_at', 'asc')
+            $sites = Site::orderBy('name', 'asc')
                 ->where('name', 'like', '%'.$this->search.'%')
                 ->where('user_id', $user->id)
                 ->paginate(config('app.pagination'));
         } else {
-            $sites = Site::orderBy('created_at', 'asc')
+            $sites = Site::orderBy('name', 'asc')
                 ->where('name', 'like', '%'.$this->search.'%')
                 ->paginate(config('app.pagination'));
         }

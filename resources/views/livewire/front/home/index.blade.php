@@ -13,7 +13,7 @@
                     </div>
 
                     <div class="flex flex-col justify-between h-full p-4">
-                        @foreach ($category->sites()->get() as $site)
+                        @foreach ($category->sites()->orderBy('name')->get() as $site)
                             <a href="{{ url($site->slug) }}">{{ $site->name }}</a>
                         @endforeach
                     </div>
