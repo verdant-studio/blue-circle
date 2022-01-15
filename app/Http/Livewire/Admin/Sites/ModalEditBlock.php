@@ -60,7 +60,7 @@ class ModalEditBlock extends Component
 
     public function destroy($id)
     {
-        $this->authorize('sites delete');
+        $this->authorize('sites update');
 
         $item = Block::findOrFail($id);
 
