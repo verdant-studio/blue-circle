@@ -61,8 +61,6 @@ class RoleAndPermissionSeeder extends Seeder
 
             'dashboard read',
 
-            'settings read',
-
             'sites create',
             'sites read',
             'sites update',

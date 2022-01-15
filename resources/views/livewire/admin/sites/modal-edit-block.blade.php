@@ -35,8 +35,7 @@
                     class="block w-full"
                     placeholder="{{ __('sites.content') }}"
                     x-ref="content"
-                    wire:model.defer="content"
-                    wire:keydown.enter="update({{$block->id}})" />
+                    wire:model.defer="content" />
                     <x-jet-input-error for="content" class="mt-2" />
                 </div>
             </div>
