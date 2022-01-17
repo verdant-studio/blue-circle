@@ -158,6 +158,7 @@ return [
     'attributes' => [
         'category' => 'categorie',
         'description' => 'omschrijving',
+        'siteDescription' => 'site omschrijving',
         'name' => 'naam',
     ],
 

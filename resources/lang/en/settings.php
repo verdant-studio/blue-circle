@@ -15,4 +15,6 @@ return [
     'message' => [
         'success-settings-updated' => 'Settings updated successfully',
     ],
+    'site-description' => 'Site description',
+    'site-description-max' => 'Max 160 characters',
 ];

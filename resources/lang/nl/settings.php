@@ -15,4 +15,6 @@ return [
     'message' => [
         'success-settings-updated' => 'Instellingen met succes geüpdatet',
     ],
+    'site-description' => 'Site omschrijving',
+    'site-description-max' => 'Maximaal 160 karakters',
 ];

@@ -1,7 +1,7 @@
 <div>
     <x-slot name="meta">
         <title>{{ config('app.name', 'Laravel') }}</title>
-        <meta name="description" content="">
+        <meta name="description" content="{{ $siteDescription ?? false }}">
     </x-slot>
 
     <div class="px-4 mx-auto max-w-7xl">
