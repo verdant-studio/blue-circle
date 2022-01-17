@@ -43,10 +43,12 @@
                             {{ $page->created_at->format('j F, Y') }}
                         </td>
                         <td class="px-6 py-4 align-middle whitespace-nowrap">
-                            <button wire:sortable.handle class="inline-block align-middle cursor-move text-stone-900 hover:text-stone-600">
-                                <svg class="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 9-3 3 3 3M9 5l3-3 3 3M15 19l-3 3-3-3M19 9l3 3-3 3M2 12h20M12 2v20"/></svg>
-                                <span class="sr-only">{{ __('general.move') }}</span>
-                            </button>
+                            @can('pages update')
+                                <button wire:sortable.handle class="inline-block align-middle cursor-move text-stone-900 hover:text-stone-600">
+                                    <svg class="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 9-3 3 3 3M9 5l3-3 3 3M15 19l-3 3-3-3M19 9l3 3-3 3M2 12h20M12 2v20"/></svg>
+                                    <span class="sr-only">{{ __('general.move') }}</span>
+                                </button>
+                            @endcan
 
                             @can('pages update')
                                 <a class="inline-block text-green-700 align-middle hover:text-green-900" href="{{ route('admin.pages.edit', ['id' => $page->id]) }}">

@@ -63,7 +63,7 @@ class Create extends Component
     {
         $this->authorize('sites create');
 
-        $categories = Category::all();
+        $categories = Category::orderBy('name')->get();
 
         return view('livewire.admin.sites.create', compact('categories'));
     }
