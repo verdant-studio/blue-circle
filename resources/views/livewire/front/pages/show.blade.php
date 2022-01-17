@@ -17,7 +17,7 @@
             </div>
         </div>
         @else
-        <div class="prose md:prose-lg">
+        <div class="prose md:prose-lg max-w-none">
             {!! $page->content !!}
         </div>
         @endif

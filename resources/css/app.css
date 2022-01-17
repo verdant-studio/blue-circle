@@ -33,3 +33,8 @@ h6 {
     @apply h-auto;
     @apply w-60;
 }
+
+.ck-content {
+    @apply prose;
+    @apply max-w-none;
+}
