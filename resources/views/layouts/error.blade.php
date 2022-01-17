@@ -1,7 +1,3 @@
-@props([
-    'meta',
-])
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -9,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        {{ $meta }}
+        <title>{{ $title . ' | ' . config('app.name', 'Laravel') }}</title>
+        <meta name="description" content="{{ $description }}">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +24,19 @@
         @livewire('front.navigation-menu')
 
         <main class="flex-1">
-            {{ $slot }}
+            <div class="px-4 mx-auto max-w-7xl">
+                <h1 class="mb-8 text-4xl font-semibold text-sky-800">{{ $title }}</h1>
+                <div class="prose md:prose-lg max-w-none">
+                    <p>{{ $description }}</p>
+                </div>
+                @if ($homeLink ?? false)
+                    <div class="mt-8">
+                        <x-button-link href="{{ route('home') }}">
+                            {{ __('general.back-to-homepage') }}
+                        </x-button-link>
+                    </div>
+                @endif
+            </div>
         </main>
 
         @livewire('front.components.footer')
