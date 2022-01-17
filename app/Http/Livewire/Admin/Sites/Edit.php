@@ -20,7 +20,7 @@ class Edit extends Component
     {
         $site = Site::findOrFail($id);
 
-        if ($site->user_id !== Auth::user()->id) {
+        if ($site->user_id !== Auth::user()->id && !Auth::user()->hasRole('super-admin')) {
             abort(403);
         }
 
