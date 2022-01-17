@@ -21,6 +21,18 @@
 
                 <div class="px-4 py-5 bg-white shadow sm:p-6 sm:rounded-tl-md sm:rounded-tr-md">
                     <div class="mb-8 md:w-3/4">
+                        <label class="block cursor-pointer" for="siteDescription">
+                            {{ __('settings.site-description') }}
+                        </label>
+                        <p class="block mb-3 text-sm italic text-slate-700">{{ __('settings.site-description-max') }}</p>
+                        <x-textarea
+                        class="block w-full"
+                        x-ref="siteDescription"
+                        wire:model.defer="siteDescription" />
+                        <x-jet-input-error for="siteDescription" class="mt-2" />
+                    </div>
+
+                    <div class="mb-8 md:w-3/4">
                         <label class="block mb-3 cursor-pointer" for="google_analytics_id">
                             {{ __('settings.google-analytics-id') }}
                             <span class="text-sm italic text-slate-500">

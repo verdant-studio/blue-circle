@@ -15,5 +15,6 @@ class Setting extends Model
         'id',
         'bol_com_api_key',
         'google_analytics_id',
+        'siteDescription',
     ];
 }

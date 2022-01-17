@@ -14,11 +14,14 @@ class Show extends Component
 
     public $google_analytics_id;
 
+    public $siteDescription;
+
     protected function rules()
     {
         return [
-            'google_analytics_id' => 'nullable|string',
             'bol_com_api_key' => 'nullable|string',
+            'siteDescription' => 'required|max:160',
+            'google_analytics_id' => 'nullable|string',
         ];
     }
 
@@ -28,6 +31,7 @@ class Show extends Component
 
         $this->bol_com_api_key = $data->bol_com_api_key ?? null;
         $this->google_analytics_id = $data->google_analytics_id ?? null;
+        $this->siteDescription = $data->siteDescription ?? null;
     }
 
 
@@ -48,6 +52,7 @@ class Show extends Component
 
         $user->bol_com_api_key = $validatedData['bol_com_api_key'];
         $user->google_analytics_id = $validatedData['google_analytics_id'];
+        $user->siteDescription = $validatedData['siteDescription'];
         $user->save();
 
         return redirect()->route('admin.settings.show')->with(['success' => __('settings.message.success-settings-updated')]);
