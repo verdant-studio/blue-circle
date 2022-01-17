@@ -6,11 +6,13 @@
                 @foreach ($product['urls'] as $url)
                     @if ($url['key'] === 'DESKTOP')
                         <a href="{{ $url['value'] }}" class="flex flex-col group" target="_blank">
-                            @foreach ($product['images'] as $image)
-                                @if ($image['key'] === 'M')
-                                    <img src="{{ $image['url'] }}" alt="{{ $product['title'] }}" class="object-contain w-full h-full mb-3 max-h-20">
-                                @endif
-                            @endforeach
+                            @if ($product['images'])
+                                @foreach ($product['images'] as $image)
+                                    @if ($image['key'] === 'M')
+                                        <img src="{{ $image['url'] }}" alt="{{ $product['title'] }}" class="object-contain w-full h-full mb-3 max-h-20">
+                                    @endif
+                                @endforeach
+                            @endif
                             <div class="text-sm group-hover:text-sky-600">{{ $product['title'] }}</div>
                         </a>
                     @endif
