@@ -15,6 +15,9 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Quicksand:wght@700&display=swap" rel="stylesheet">
 
+
+        @livewire('front.components.g-a-tracking')
+
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
@@ -28,9 +31,7 @@
             {{ $slot }}
         </main>
 
-        <footer class="h-48 min-h-full mt-8 bg-sky-900 lg:mt-16">
-            Test
-        </footer>
+        @livewire('front.components.footer')
 
         @livewireScripts
     </body>
