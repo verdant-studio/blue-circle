@@ -56,6 +56,10 @@ class ModalCreateBlock extends Component
 
         $this->emitTo('admin.sites.form-site', 'refreshComponent');
 
+        // reset fields
+        $this->name = '';
+        $this->content = '';
+
         return $this->confirmingCreateBlock = false;
     }
 
