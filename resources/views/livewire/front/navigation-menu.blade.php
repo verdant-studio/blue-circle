@@ -18,9 +18,11 @@
                         </x-jet-nav-link>
 
                         @foreach($pages as $page)
-                            <x-jet-nav-link href="{{ route('page', $page->slug) }}" :active="request()->routeIs('page') && request('slug') == $page->slug">
-                                {{ $page->name }}
-                            </x-jet-nav-link>
+                            @unless($page->hideMainMenu)
+                                <x-jet-nav-link href="{{ route('page', $page->slug) }}" :active="request()->routeIs('page') && request('slug') == $page->slug">
+                                    {{ $page->name }}
+                                </x-jet-nav-link>
+                            @endunless
                         @endforeach
                     </div>
 
@@ -65,9 +67,11 @@
                 {{ __('Home') }}
             </x-jet-responsive-nav-link>
             @foreach($pages as $page)
-                <x-jet-responsive-nav-link href="{{ route('page', $page->slug) }}" :active="request()->routeIs('page') && request('slug') == $page->slug">
-                    {{ $page->name }}
-                </x-jet-responsive-nav-link>
+                @unless($page->hideMainMenu)
+                    <x-jet-responsive-nav-link href="{{ route('page', $page->slug) }}" :active="request()->routeIs('page') && request('slug') == $page->slug">
+                        {{ $page->name }}
+                    </x-jet-responsive-nav-link>
+                @endunless
             @endforeach
         </div>
 

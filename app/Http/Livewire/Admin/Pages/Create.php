@@ -15,6 +15,8 @@ class Create extends Component
 
     public $description;
 
+    public $hideMainMenu;
+
     public $name;
 
     public $template;
@@ -22,6 +24,7 @@ class Create extends Component
     protected $rules = [
         'content' => 'nullable|string',
         'description' => 'required|max:160',
+        'hideMainMenu' => 'nullable|boolean',
         'name' => 'required|unique:pages|max:255',
         'template' => 'nullable',
     ];
@@ -43,6 +46,7 @@ class Create extends Component
         $data->content = $validatedData['content'];
         $data->description = $validatedData['description'];
         $data->name = $validatedData['name'];
+        $data->hideMainMenu = $validatedData['hideMainMenu'] ?? false;
         $data->position = $position;
         $data->template_id = $validatedData['template'] ?? PageTemplate::first()->id;
 
