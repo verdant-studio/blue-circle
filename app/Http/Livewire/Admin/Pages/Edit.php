@@ -11,13 +11,15 @@ class Edit extends Component
 {
     use AuthorizesRequests;
 
-    public $page;
-
-    public $name;
-
     public $description;
 
     public $content;
+
+    public $hideMainMenu;
+
+    public $name;
+
+    public $page;
 
     public $template;
 
@@ -26,6 +28,7 @@ class Edit extends Component
         return [
             'content' => 'nullable|string',
             'description' => 'required|max:160',
+            'hideMainMenu' => 'nullable|boolean',
             'name' => 'required|max:255|unique:pages,name,' . $this->page->id,
             'template' => 'nullable',
         ];
@@ -45,6 +48,7 @@ class Edit extends Component
             $this->name = $page->name;
             $this->description = $page->description;
             $this->content = $page->content;
+            $this->hideMainMenu = $page->hideMainMenu;
             $this->template = $page->template_id;
         }
     }
@@ -59,6 +63,7 @@ class Edit extends Component
         $data->content = $validatedData['content'];
         $data->description = $validatedData['description'];
         $data->name = $validatedData['name'];
+        $data->hideMainMenu = $validatedData['hideMainMenu'] ?? false;
         $data->template_id = $validatedData['template'] ?? PageTemplate::first()->id;
         $data->save();
 

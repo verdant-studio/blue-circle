@@ -49,6 +49,14 @@
                     </div>
 
                     <div class="mb-8 md:w-3/4">
+                        <label class="flex items-center cursor-pointer">
+                            <x-jet-checkbox wire:model.defer="hideMainMenu" />
+                            <span class="ml-2">{{ __('pages.hide-on-main-menu') }}</span>
+                        </label>
+                        <x-jet-input-error for="hideMainMenu" class="mt-2" />
+                    </div>
+
+                    <div class="mb-8 md:w-3/4">
                         <label class="block mb-3 cursor-pointer" for="template">{{ __('pages.templates._singular') }}</label>
                         <select class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" id="template" name="template" wire:model="template">
                             @foreach ($templates as $template)

@@ -18,6 +18,7 @@ class Page extends Model
     protected $fillable = [
         'content',
         'description',
+        'hideMainMenu',
         'name',
         'position',
         'slug',

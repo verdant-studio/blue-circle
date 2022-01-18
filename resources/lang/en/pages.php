@@ -13,6 +13,7 @@ return [
     'content' => 'Content',
     'description' => 'Description',
     'description-max' => 'Max 160 characters',
+    'hide-on-main-menu' => 'Hide in main navigation',
     'message' => [
         'success-page-added' => 'Page :page added successfully',
         'success-page-deleted' => 'Page :page deleted successfully',
