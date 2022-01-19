@@ -17,3 +17,4 @@ yarn-error.log
 # Custom
 .DS_Store
 storage/app/analytics
+public/sitemap.xml
