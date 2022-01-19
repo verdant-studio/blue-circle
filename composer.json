@@ -21,6 +21,7 @@
         "nesbot/carbon": "^2.55",
         "spatie/laravel-analytics": "^3.11",
         "spatie/laravel-permission": "^5.4",
+        "spatie/laravel-sitemap": "^5.9",
         "spatie/laravel-sluggable": "^2.6",
         "vlucas/phpdotenv": "^5.4"
     },

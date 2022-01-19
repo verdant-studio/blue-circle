@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Models\Site;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\SitemapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +19,6 @@ use App\Http\Controllers\Admin\UserController;
 */
 
 Route::get('/', \App\Http\Livewire\Front\Home\Index::class)->name('home');
-// Route::get('/{slug}', \App\Http\Livewire\Front\Sites\Show::class)->name('site');
 Route::get('/{slug}', \App\Http\Livewire\Front\Pages\Show::class)->name('page');
 
 // Admin routes
@@ -38,6 +37,8 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->name('admin.')
     Route::get('/sites', \App\Http\Livewire\Admin\Sites\Index::class)->name('sites.index');
     Route::get('/sites/create', \App\Http\Livewire\Admin\Sites\Create::class)->name('sites.create');
     Route::get('/sites/{id}', \App\Http\Livewire\Admin\Sites\Edit::class)->name('sites.edit');
+    // Sitemap force trigger re-crawl (this is also done daily by command)
+    Route::get('/sitemap', [SitemapController::class, 'generate'])->name('sitemap');
     // Users
     Route::resource('/users', UserController::class);
 });
