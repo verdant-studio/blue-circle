@@ -18,6 +18,7 @@ set('allow_anonymous_stats', false);
 set('default_stage', 'production');
 set('shared_files', [
     '.env',
+    'public/sitemap.xml'
 ]);
 set('shared_dirs', [
     'storage/app/analytics',
