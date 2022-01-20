@@ -9,7 +9,7 @@ class NavigationMenu extends Component
 {
     public function render()
     {
-        $pages = Page::orderBy('name')->get();
+        $pages = Page::orderBy('position')->get();
 
         return view('livewire.front.navigation-menu', compact('pages'));
     }
