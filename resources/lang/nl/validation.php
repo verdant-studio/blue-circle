@@ -91,7 +91,7 @@ return [
     'min' => [
         'numeric' => 'The :attribute must be at least :min.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => 'Het :attribute moet minstens :min karakters hebben.',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'multiple_of' => 'The :attribute must be a multiple of :value.',
@@ -116,7 +116,7 @@ return [
     'size' => [
         'numeric' => 'The :attribute must be :size.',
         'file' => 'The :attribute must be :size kilobytes.',
-        'string' => 'The :attribute must be :size characters.',
+        'string' => 'Het :attribute moet :size karakters hebben.',
         'array' => 'The :attribute must contain :size items.',
     ],
     'starts_with' => 'The :attribute must start with one of the following: :values.',
@@ -158,8 +158,9 @@ return [
     'attributes' => [
         'category' => 'categorie',
         'description' => 'omschrijving',
-        'siteDescription' => 'site omschrijving',
+        'messageContent' => 'bericht',
         'name' => 'naam',
+        'siteDescription' => 'site omschrijving',
     ],
 
 ];

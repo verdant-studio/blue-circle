@@ -25,5 +25,9 @@ class PageTemplateSeeder extends Seeder
             'name'  => 'Weather',
             'slug'  => 'weather',
         ]);
+        PageTemplate::create([
+            'name'  => 'Contact',
+            'slug'  => 'contact',
+        ]);
     }
 }
