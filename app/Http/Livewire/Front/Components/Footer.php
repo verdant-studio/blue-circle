@@ -10,7 +10,7 @@ class Footer extends Component
 {
     public function render()
     {
-        $pages = Page::orderBy('name')->get();
+        $pages = Page::orderBy('position')->get();
         $settings = Setting::first();
         $siteDescription = $settings->siteDescription ?? null;
 
