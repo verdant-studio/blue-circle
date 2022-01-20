@@ -22,6 +22,7 @@ return [
     'templates' => [
         '_singular' => 'Template',
         '_plural' => 'Templates',
+        'contact' => 'Contact',
         'default' => 'Default',
         'weather' => 'Weather',
     ],

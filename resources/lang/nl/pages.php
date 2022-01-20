@@ -22,6 +22,7 @@ return [
     'templates' => [
         '_singular' => 'Template',
         '_plural' => 'Templates',
+        'contact' => 'Contact',
         'default' => 'Standaard',
         'weather' => 'Weerbericht',
     ],

@@ -155,6 +155,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'messageContent' => 'message',
+        'siteDescription' => 'site description',
+    ],
 
 ];
