@@ -76,7 +76,11 @@ class Site extends Model
             if ($response->getStatusCode() == 200) {
                 $data = json_decode($response->getBody()->getContents(), true);
 
-                return collect($data['products']);
+                if ($data['totalResultSize'] > 0) {
+                    return collect($data['products']);
+                } else {
+                    return collect([]);
+                }
             }
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
