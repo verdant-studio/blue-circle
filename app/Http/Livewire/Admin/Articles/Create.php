@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Sites;
+namespace App\Http\Livewire\Admin\Articles;
 
+use App\Models\Article;
 use App\Models\Category;
-use App\Models\Site;
-use App\Models\Theme;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -17,11 +16,13 @@ class Create extends Component
 
     public $description;
 
+    public $content;
+
     public $category;
 
     protected $rules = [
-        'name' => 'required|unique:sites|max:255',
-        'description' => 'max:160',
+        'name' => 'required|unique:articles|max:255',
+        'description' => 'max:160|required',
         'category' => 'required',
     ];
 
@@ -42,28 +43,28 @@ class Create extends Component
 
     public function store()
     {
-        $this->authorize('sites create');
+        $this->authorize('articles create');
 
         $validatedData = $this->validate();
 
-        $data = new Site();
+        $data = new Article();
         $data->category_id = $validatedData['category'];
-        $data->theme_id = Theme::where('name', 'Sky')->first()->id;
         $data->description = $validatedData['description'] ?? '';
+        $data->content = $validatedData['content'] ?? '';
         $data->name = $validatedData['name'];
         $data->user_id = Auth::user()->id;
 
         $data->save();
 
-        return redirect()->route('admin.sites.index')->with(['success' => __('sites.message.success-site-added', ['site' => $data->name])]);
+        return redirect()->route('admin.blog.index')->with(['success' => __('blog.message.success-article-added', ['article' => $data->name])]);
     }
 
     public function render()
     {
-        $this->authorize('sites create');
+        $this->authorize('articles create');
 
         $categories = Category::orderBy('name')->get();
 
-        return view('livewire.admin.sites.create', compact('categories'));
+        return view('livewire.admin.articles.create', compact('categories'));
     }
 }

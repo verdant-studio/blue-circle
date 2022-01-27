@@ -26,9 +26,9 @@ Route::get('/{slug}', \App\Http\Livewire\Front\Pages\Show::class)->name('page');
 // Admin routes
 Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     // Blog
-    Route::get('/blog', \App\Http\Livewire\Admin\Pages\Index::class)->name('blog.index');
-    Route::get('/blog/article/create', \App\Http\Livewire\Admin\Pages\Create::class)->name('blog.article.create');
-    Route::get('/blog/article/{id}', \App\Http\Livewire\Admin\Pages\Edit::class)->name('blog.article.edit');
+    Route::get('/blog', \App\Http\Livewire\Admin\Blog\Index::class)->name('blog.index');
+    Route::get('/blog/articles/create', \App\Http\Livewire\Admin\Articles\Create::class)->name('blog.articles.create');
+    Route::get('/blog/articles/{id}', \App\Http\Livewire\Admin\Articles\Edit::class)->name('blog.articles.edit');
 
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

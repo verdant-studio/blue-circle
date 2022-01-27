@@ -38,7 +38,7 @@
                         </x-jet-nav-link>
                     @endcan
                     @can('blog read')
-                        <x-jet-nav-link href="{{ route('admin.pages.index') }}" :active="request()->routeIs('admin.pages.index')">
+                        <x-jet-nav-link href="{{ route('admin.blog.index') }}" :active="request()->routeIs('admin.blog.index')">
                             {{ __('blog._singular') }}
                         </x-jet-nav-link>
                     @endcan
@@ -196,7 +196,7 @@
                 </x-jet-responsive-nav-link>
             @endcan
             @can('blog read')
-                <x-jet-responsive-nav-link href="{{ route('admin.settings.show') }}" :active="request()->routeIs('admin.settings.show')">
+                <x-jet-responsive-nav-link href="{{ route('admin.blog.index') }}" :active="request()->routeIs('admin.blog.index')">
                     {{ __('blog._singular') }}
                 </x-jet-responsive-nav-link>
             @endcan
