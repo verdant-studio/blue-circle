@@ -15,6 +15,11 @@ class RoleAndPermissionSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         $permissions = [
+            'blog create',
+            'blog delete',
+            'blog read',
+            'blog update',
+
             'categories create',
             'categories delete',
             'categories read',
@@ -55,6 +60,8 @@ class RoleAndPermissionSeeder extends Seeder
         // =======================================================================
 
         $admin_permissions = [
+            'blog read',
+
             'categories read',
 
             'pages read',
