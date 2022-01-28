@@ -19,8 +19,8 @@ use App\Http\Controllers\SitemapController;
 */
 
 Route::get('/', \App\Http\Livewire\Front\Home\Index::class)->name('home');
-Route::get('/blog', \App\Http\Livewire\Front\Pages\Show::class)->name('blog');
-Route::get('/blog/{slug}', \App\Http\Livewire\Front\Pages\Show::class)->name('article');
+Route::get('/blog', \App\Http\Livewire\Front\Blog\Index::class)->name('blog');
+Route::get('/blog/{slug}', \App\Http\Livewire\Front\Articles\Show::class)->name('article');
 Route::get('/{slug}', \App\Http\Livewire\Front\Pages\Show::class)->name('page');
 
 // Admin routes
