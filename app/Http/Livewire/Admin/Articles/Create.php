@@ -24,6 +24,7 @@ class Create extends Component
         'name' => 'required|unique:articles|max:255',
         'description' => 'max:160|required',
         'category' => 'required',
+        'content' => 'nullable|string',
     ];
 
     public function mount()

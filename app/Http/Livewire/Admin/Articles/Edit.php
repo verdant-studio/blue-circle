@@ -28,6 +28,7 @@ class Edit extends Component
             'name' => 'required|max:255|unique:articles,name,' . $this->article->id,
             'description' => 'max:160|required',
             'category' => 'required',
+            'content' => 'nullable|string',
         ];
     }
 
