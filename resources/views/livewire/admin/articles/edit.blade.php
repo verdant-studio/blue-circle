@@ -33,6 +33,9 @@
                             </label>
                             <img class="h-40 mb-2" src="{{ $newPhoto->temporaryUrl() }}">
                         @else
+                            <label class="block mb-3 cursor-pointer" for="photo">
+                                {{ __('articles.photo') }}
+                            </label>
                             <img class="h-40 mb-2" src="{{ url('storage/' . $photo) }}">
                         @endif
                         <div wire:loading wire:target="newPhoto">{{ __('general.uploading') }}</div>

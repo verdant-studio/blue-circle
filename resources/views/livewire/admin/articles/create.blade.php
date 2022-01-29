@@ -34,6 +34,10 @@
                                 {{ __('articles.photo-preview') }}
                             </label>
                             <img class="h-40 mb-2" src="{{ $photo->temporaryUrl() }}">
+                        @else
+                            <label class="block mb-3 cursor-pointer" for="photo">
+                                {{ __('articles.photo') }}
+                            </label>
                         @endif
 
                         <div wire:loading wire:target="photo">{{ __('general.uploading') }}</div>
