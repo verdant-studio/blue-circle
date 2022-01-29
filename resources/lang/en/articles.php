@@ -16,5 +16,4 @@ return [
     'description-max' => 'Max 160 characters',
     'name' => 'Name',
     'photo-preview' => 'Photo preview',
-    'photo-remove' => 'Remove photo',
 ];

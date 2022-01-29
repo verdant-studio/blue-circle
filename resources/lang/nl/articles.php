@@ -16,5 +16,4 @@ return [
     'description-max' => 'Maximaal 160 karakters',
     'name' => 'Naam',
     'photo-preview' => 'Foto voorbeeld',
-    'photo-remove' => 'Foto verwijderen',
 ];

@@ -39,7 +39,7 @@ class Index extends Component
     {
         $this->authorize('blog read');
 
-        $articles = Article::orderBy('name', 'asc')
+        $articles = Article::orderBy('created_at', 'desc')
                 ->where('name', 'like', '%'.$this->search.'%')
                 ->paginate(config('app.pagination'));
 

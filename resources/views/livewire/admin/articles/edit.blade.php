@@ -27,15 +27,16 @@
 
                 <div class="px-4 py-5 bg-white shadow sm:p-6 sm:rounded-tl-md sm:rounded-tr-md">
                     <div class="mb-8 md:w-3/4">
-                        @if ($photo)
-                            <img class="mb-2" src="{{ url('storage/' . $photo) }}">
-                            <x-jet-secondary-button type="button" class="mt-2" wire:click="deletePhoto">
-                                {{ __('articles.photo-remove') }}
-                            </x-jet-secondary-button>
+                        @if ($newPhoto)
+                            <label class="block mb-3 cursor-pointer">
+                                {{ __('articles.photo-preview') }}
+                            </label>
+                            <img class="h-40 mb-2" src="{{ $newPhoto->temporaryUrl() }}">
                         @else
-                            <div wire:loading wire:target="photo">{{ __('general.uploading') }}</div>
-                            <input id="photo" name="photo" type="file" wire:model="photo">
+                            <img class="h-40 mb-2" src="{{ url('storage/' . $photo) }}">
                         @endif
+                        <div wire:loading wire:target="newPhoto">{{ __('general.uploading') }}</div>
+                        <input id="newPhoto" name="newPhoto" type="file" wire:model="newPhoto">
                     </div>
 
                     <div class="mb-8 md:w-3/4">
@@ -61,8 +62,8 @@
                     </div>
 
                     <div class="mb-8 md:w-3/4">
-                        <label class="block mb-3 cursor-pointer" for="category">{{ __('sites.category') }}</label>
-                        <select class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" id="category" name="category" wire:model="category">
+                        <label class="block mb-3 cursor-pointer" for="category">{{ __('articles.category') }}</label>
+                        <select class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" id="category" name="category" required wire:model.defer="category">
                             @foreach ($categories as $category)
                                 <option wire:key="{{ $category->id }}" value={{ $category->id }}>{{ $category->name }}</option>
                             @endforeach

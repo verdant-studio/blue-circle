@@ -25,16 +25,18 @@ class Edit extends Component
 
     public $name;
 
+    public $newPhoto;
+
     public $photo;
 
     protected function rules()
     {
         return [
-            'name' => 'required|max:255|unique:articles,name,' . $this->article->id,
-            'description' => 'max:160|required',
             'category' => 'required',
             'content' => 'nullable|string',
-            'photo' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'description' => 'max:160|required',
+            'name' => 'required|max:255|unique:articles,name,' . $this->article->id,
+            'newPhoto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ];
     }
 
@@ -44,25 +46,11 @@ class Edit extends Component
 
         if ($article) {
             $this->article = $article;
-            $this->name = $article->name;
-            $this->description = $article->description;
-            $this->content = $article->content;
             $this->category = $article->category_id;
+            $this->content = $article->content;
+            $this->description = $article->description;
+            $this->name = $article->name;
             $this->photo = $article->photo;
-        }
-    }
-
-    public function deletePhoto()
-    {
-        $this->authorize('articles update');
-
-        if (Storage::url($this->article->photo) == Storage::url($this->photo)) {
-            $data = Article::findOrFail($this->article->id);
-            $data->photo = null;
-            $data->save();
-
-            Storage::delete('public/' . $this->photo);
-            $this->updated('photo');
         }
     }
 
@@ -75,16 +63,30 @@ class Edit extends Component
     {
         $this->authorize('articles update');
 
+
         $validatedData = $this->validate();
 
-        $photo = $this->photo->storePublicly('blog', ['disk' => 'public']);
 
         $data = Article::findOrFail($this->article->id);
+
+        if ($this->newPhoto) {
+            $this->validate([
+                'newPhoto' => 'image|mimes:jpg,jpeg,png|max:2048'
+            ]);
+
+            Storage::delete('public/' . $this->photo);
+
+            $photo = $this->newPhoto->storePublicly('blog', ['disk' => 'public']);
+
+            $data->photo = $photo;
+        } else {
+            $data->photo = $this->photo;
+        }
+
         $data->category_id = $validatedData['category'];
         $data->content = $validatedData['content'];
         $data->description = $validatedData['description'];
         $data->name = $validatedData['name'];
-        $data->photo = $photo;
         $data->user_id = Auth::user()->id;
         $data->save();
 

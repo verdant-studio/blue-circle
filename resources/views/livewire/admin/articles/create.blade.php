@@ -33,7 +33,7 @@
                             <label class="block mb-3 cursor-pointer" for="photo">
                                 {{ __('articles.photo-preview') }}
                             </label>
-                            <img class="mb-2" src="{{ $photo->temporaryUrl() }}">
+                            <img class="h-40 mb-2" src="{{ $photo->temporaryUrl() }}">
                         @endif
 
                         <div wire:loading wire:target="photo">{{ __('general.uploading') }}</div>
@@ -70,7 +70,7 @@
                     </div>
 
                     <div class="mb-8 md:w-3/4">
-                        <label class="block mb-3 cursor-pointer" for="category">{{ __('sites.category') }}</label>
+                        <label class="block mb-3 cursor-pointer" for="category">{{ __('articles.category') }}</label>
                         <select autofocus class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" id="category" name="category" wire:model.defer="category">
                             @foreach ($categories as $category)
                                 <option wire:key="{{ $category->id }}" value="{{ $category->id }}">{{ $category->name }}</option>
