@@ -18,6 +18,7 @@ class CreateArticlesTable extends Migration
             $table->string('slug');
             $table->string('name', 255)->unique()->notNullable();
             $table->string('description', 160)->notNullable();
+            $table->string('photo')->nullable();
             $table->longText('content')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->unsigned()->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');

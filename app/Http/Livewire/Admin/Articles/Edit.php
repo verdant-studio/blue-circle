@@ -6,11 +6,14 @@ use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Edit extends Component
 {
     use AuthorizesRequests;
+    use WithFileUploads;
 
     public $article;
 
@@ -22,6 +25,8 @@ class Edit extends Component
 
     public $name;
 
+    public $photo;
+
     protected function rules()
     {
         return [
@@ -29,6 +34,7 @@ class Edit extends Component
             'description' => 'max:160|required',
             'category' => 'required',
             'content' => 'nullable|string',
+            'photo' => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ];
     }
 
@@ -42,6 +48,21 @@ class Edit extends Component
             $this->description = $article->description;
             $this->content = $article->content;
             $this->category = $article->category_id;
+            $this->photo = $article->photo;
+        }
+    }
+
+    public function deletePhoto()
+    {
+        $this->authorize('articles update');
+
+        if (Storage::url($this->article->photo) == Storage::url($this->photo)) {
+            $data = Article::findOrFail($this->article->id);
+            $data->photo = null;
+            $data->save();
+
+            Storage::delete('public/' . $this->photo);
+            $this->updated('photo');
         }
     }
 
@@ -56,11 +77,14 @@ class Edit extends Component
 
         $validatedData = $this->validate();
 
+        $photo = $this->photo->storePublicly('blog', ['disk' => 'public']);
+
         $data = Article::findOrFail($this->article->id);
         $data->category_id = $validatedData['category'];
         $data->content = $validatedData['content'];
         $data->description = $validatedData['description'];
         $data->name = $validatedData['name'];
+        $data->photo = $photo;
         $data->user_id = Auth::user()->id;
         $data->save();
 

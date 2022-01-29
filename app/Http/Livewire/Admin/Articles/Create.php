@@ -7,24 +7,29 @@ use App\Models\Category;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Create extends Component
 {
     use AuthorizesRequests;
-
-    public $name;
-
-    public $description;
-
-    public $content;
+    use WithFileUploads;
 
     public $category;
 
+    public $content;
+
+    public $description;
+
+    public $name;
+
+    public $photo;
+
     protected $rules = [
-        'name' => 'required|unique:articles|max:255',
-        'description' => 'max:160|required',
         'category' => 'required',
         'content' => 'nullable|string',
+        'description' => 'max:160|required',
+        'name' => 'required|unique:articles|max:255',
+        'photo' => 'required|image|mimes:jpg,jpeg,png|max:2048',
     ];
 
     public function mount()
@@ -48,11 +53,14 @@ class Create extends Component
 
         $validatedData = $this->validate();
 
+        $photo = $this->photo->storePublicly('blog', ['disk' => 'public']);
+
         $data = new Article();
         $data->category_id = $validatedData['category'];
-        $data->description = $validatedData['description'] ?? '';
         $data->content = $validatedData['content'] ?? '';
+        $data->description = $validatedData['description'] ?? '';
         $data->name = $validatedData['name'];
+        $data->photo = $photo ?? '';
         $data->user_id = Auth::user()->id;
 
         $data->save();

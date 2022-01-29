@@ -20,6 +20,7 @@ class Article extends Model
         'content',
         'description',
         'name',
+        'photo',
         'slug',
     ];
 

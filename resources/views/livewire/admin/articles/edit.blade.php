@@ -27,6 +27,18 @@
 
                 <div class="px-4 py-5 bg-white shadow sm:p-6 sm:rounded-tl-md sm:rounded-tr-md">
                     <div class="mb-8 md:w-3/4">
+                        @if ($photo)
+                            <img class="mb-2" src="{{ url('storage/' . $photo) }}">
+                            <x-jet-secondary-button type="button" class="mt-2" wire:click="deletePhoto">
+                                {{ __('articles.photo-remove') }}
+                            </x-jet-secondary-button>
+                        @else
+                            <div wire:loading wire:target="photo">{{ __('general.uploading') }}</div>
+                            <input id="photo" name="photo" type="file" wire:model="photo">
+                        @endif
+                    </div>
+
+                    <div class="mb-8 md:w-3/4">
                         <label class="block mb-3 cursor-pointer" for="name">{{ __('articles.name') }}</label>
                         <input id="name" name="name" type="text" class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" wire:model="name">
                         <x-jet-input-error for="name" class="mt-2" />

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Front\Articles;
 
 use App\Models\Article;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
 class Show extends Component

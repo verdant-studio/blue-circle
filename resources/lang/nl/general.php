@@ -37,4 +37,5 @@ return [
     'saved' => 'Opgeslagen',
     'search' => 'Zoeken',
     'update' => 'Update',
+    'uploading' => 'Aan het uploaden'
 ];
