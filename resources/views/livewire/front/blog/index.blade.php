@@ -9,9 +9,12 @@
 
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             @foreach ($articles as $article)
-            <a href="{{ route('blog') }}/{{ $article->slug }}" class="flex flex-col h-full p-4 overflow-hidden bg-white rounded-md shadow-md hover:text-white hover:bg-sky-600">
-                <h2 class="lg:text-lg">{{ $article->name }}</h2>
-                {{ $article->created_at->format('j F, Y') }}
+            <a href="{{ route('blog') }}/{{ $article->slug }}" class="flex flex-col h-full overflow-hidden bg-white rounded-md shadow-md hover:text-white hover:bg-sky-600">
+                <img src="{{ url('storage/' . $article->photo) }}" alt="{{ $article->title }}" class="object-cover w-full h-32 md:h-48">
+                <div class="p-4">
+                    <h2 class="lg:text-lg">{{ $article->name }}</h2>
+                    {{ $article->created_at->format('j F, Y') }}
+                </div>
             </a>
             @endforeach
         </div>

@@ -17,4 +17,5 @@ return [
         'success-article-updated' => 'Article :article updated successfully',
     ],
     'owner' => 'Owner',
+    'settings' => 'Settings',
 ];

@@ -17,4 +17,5 @@ return [
         'success-article-updated' => 'Artikel :article met succes geüpdatet',
     ],
     'owner' => 'Eigenaar',
+    'settings' => 'Instellingen',
 ];

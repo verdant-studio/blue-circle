@@ -23,63 +23,40 @@
             @endcan
         </div>
 
-        <div class="flex justify-end">
-            <input class="block w-full max-w-md mt-2 mb-8 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500" placeholder="{{ __('general.search') }}" type="text" wire:model="search">
+        <div class="mb-8 border-b border-slate-300">
+            <ul class="flex flex-wrap -mb-px" role="tablist">
+                <li class="mr-2" role="presentation">
+                    <a href="#blog-overview-tab" class="inline-flex items-center py-4 px-4 text-sm font-bold uppercase tracking-wider text-center rounded-t-lg border-b-2 hover:text-slate-700 hover:border-sky-900 group {{ $selectedTab === "blog-overview-tab" ? 'bg-white text-black border-sky-700' : 'bg-slate-200 text-slate-900 border-transparent' }}" data-toggle="tab" wire:click="selectTab('blog-overview-tab')" aria-expanded="false">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18"/></svg>
+                        {{ __('blog._singular') }}
+                    </a>
+                </li>
+                <li class="mr-2" role="presentation">
+                    <a href="#blog-settings-tab" class="inline-flex items-center py-4 px-4 text-sm font-bold uppercase tracking-wider text-center rounded-t-lg border-b-2 hover:text-slate-700 hover:border-sky-900 group {{ $selectedTab === "blog-settings-tab" ? 'bg-white text-black border-sky-700' : 'bg-slate-200 text-slate-900 border-transparent' }}" data-toggle="tab" wire:click="selectTab('blog-settings-tab')" aria-expanded="false">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        {{ __('blog.settings') }}
+                    </a>
+                </li>
+            </ul>
         </div>
 
-        <div class="mb-8 overflow-hidden border-b rounded-md shadow border-slate-300">
-            <table class="min-w-full divide-y divide-slate-300">
-                <thead class="text-white bg-sky-600">
-                    <tr>
-                        <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('general.name') }}</th>
-                        <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('blog.category') }}</th>
-                        <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('blog.owner') }}</th>
-                        <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('general.created-at') }}</th>
-                        <th class="px-6 py-3 text-xs font-bold tracking-wider text-left uppercase" scope="col">{{ __('general.actions') }}</th>
-                    </tr>
-                </thead>
-
-                <tbody class="bg-white divide-y divide-slate-300">
-                @foreach ($articles as $article)
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            {{ $article->name }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            {{ $article->category->name }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            {{ $article->user->name }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            {{ $article->created_at->format('j F, Y') }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            @can('articles update')
-                                <a class="inline-block text-green-700 align-middle hover:text-green-900" href="{{ route('admin.blog.articles.edit', ['id' => $article->id]) }}">
-                                    <svg class="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                    </svg>
-                                    <span class="sr-only">{{ __('general.edit') }}</span>
-                                </a>
-                            @endcan
-
-                            @can('articles delete')
-                                <button class="inline-block text-red-600 align-middle hover:text-red-900" wire:click="destroy({{$article->id}})">
-                                    <svg class="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                    </svg>
-                                    <span class="sr-only">{{ __('articles.delete') }}</span>
-                                </button>
-                            @endcan
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+        <div>
+            <div aria-labelledby="blog-overview-tab" class="{{ $selectedTab === "blog-overview-tab" ? 'block' : 'hidden' }}" role="tabpanel">
+                @livewire('admin.blog.show')
+            </div>
+            <div aria-labelledby="blog-settings-tab" class="{{ $selectedTab === "blog-settings-tab" ? 'block' : 'hidden' }}" role="tabpanel">
+                @livewire('admin.blog.edit')
+            </div>
         </div>
 
-        {{ $articles->links() }}
+        <script>
+            document.addEventListener('livewire:load', function () {
+                @this.on('selectTab', function (value) {
+                    @this.set('selectedTab', value);
+                });
+            });
+        </script>
+
     </div>
 </div>
 
