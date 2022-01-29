@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Admin\Blog;
 
 use App\Models\Article;
-use App\Models\Blog;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -30,6 +30,11 @@ class Index extends Component
         $this->authorize('articles delete');
 
         $article = Article::findOrFail($id);
+
+        if ($article->photo) {
+            Storage::delete('public/' . $article->photo);
+        }
+
         $article->delete();
 
         return redirect()->route('admin.blog.index')->with(['success' => __('blog.message.success-article-deleted', ['article' => $article->name])]);
