@@ -21,6 +21,7 @@ class RoleAndPermissionSeeder extends Seeder
             'articles update',
 
             'blog read',
+            'blog update',
 
             'categories create',
             'categories delete',

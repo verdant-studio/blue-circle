@@ -6,7 +6,7 @@
 
     <div class="px-4 mx-auto max-w-7xl">
         @if ($article->photo)
-            <img alt="{{ $article->name }}" src="{{ url('storage/' . $article->photo) }}" class="w-full">
+            <img alt="{{ $article->name }}" src="{{ url('storage/' . $article->photo) }}" class="w-full mb-8">
         @endif
         <h1 class="mb-8 text-4xl font-semibold text-sky-800">{{ $article->name }}</h1>
 
