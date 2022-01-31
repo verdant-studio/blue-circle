@@ -37,7 +37,7 @@ class Show extends Component
 
         $article->delete();
 
-        return redirect()->route('admin.blog.index')->with(['success' => __('blog.message.success-article-deleted', ['article' => $article->name])]);
+        return redirect()->route('admin.blog.index')->with(['success' => __('articles.message.success-article-deleted', ['article' => $article->name])]);
     }
 
     public function render()

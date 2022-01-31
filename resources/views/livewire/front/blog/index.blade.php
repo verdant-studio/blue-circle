@@ -1,7 +1,7 @@
 <div>
     <x-slot name="meta">
-        <title>{{ config('app.name', 'Laravel') }}</title>
-        <meta name="description" content="test">
+        <title>{{ 'Blog | ' . config('app.name', 'Laravel') }}</title>
+        <meta name="description" content="{{ $blog->description }}">
     </x-slot>
 
     <div class="px-4 mx-auto max-w-7xl">

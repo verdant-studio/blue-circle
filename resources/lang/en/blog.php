@@ -14,9 +14,7 @@ return [
     'description' => 'Description',
     'description-max' => 'Max 160 characters',
     'message' => [
-        'success-article-added' => 'Article :article added successfully',
-        'success-article-deleted' => 'Article :article deleted successfully',
-        'success-article-updated' => 'Article :article updated successfully',
+        'success-blog-updated' => 'Blog settings updated successfully',
     ],
     'owner' => 'Owner',
     'settings' => 'Settings',

@@ -65,7 +65,7 @@ class Create extends Component
 
         $data->save();
 
-        return redirect()->route('admin.blog.index')->with(['success' => __('blog.message.success-article-added', ['article' => $data->name])]);
+        return redirect()->route('admin.blog.index')->with(['success' => __('articles.message.success-article-added', ['article' => $data->name])]);
     }
 
     public function render()

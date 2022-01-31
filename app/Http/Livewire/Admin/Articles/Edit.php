@@ -90,7 +90,7 @@ class Edit extends Component
         $data->user_id = Auth::user()->id;
         $data->save();
 
-        return redirect()->route('admin.blog.index', $this->article->id)->with(['success' => __('blog.message.success-article-updated', ['article' => $data->name])]);
+        return redirect()->route('admin.blog.index', $this->article->id)->with(['success' => __('articles.message.success-article-updated', ['article' => $data->name])]);
     }
 
     public function render()

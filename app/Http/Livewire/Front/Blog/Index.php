@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Front\Blog;
 
 use App\Models\Article;
+use App\Models\Blog;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -20,6 +21,8 @@ class Index extends Component
         $articles = Article::orderBy('created_at', 'desc')
                 ->paginate(config('app.pagination'));
 
-        return view('livewire.front.blog.index', compact('articles'))->layout('layouts.front');
+        $blog = Blog::first();
+
+        return view('livewire.front.blog.index', compact('articles', 'blog'))->layout('layouts.front');
     }
 }
