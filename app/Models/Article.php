@@ -5,10 +5,13 @@ namespace App\Models;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Article extends Model
+class Article extends Model implements HasMedia
 {
-    use HasSlug;
+    use HasSlug, InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -32,6 +35,15 @@ class Article extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
+    }
+
+    /**
+     * Register media collections for CKeditor.
+     */
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+            ->width(600);
     }
 
     /**

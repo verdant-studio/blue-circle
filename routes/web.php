@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\SitemapController;
 
@@ -54,4 +55,6 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->name('admin.')
 
     // Users
     Route::resource('/users', UserController::class);
+
+    Route::post('/images', [ImageController::class, 'store'])->name('images.store');
 });
