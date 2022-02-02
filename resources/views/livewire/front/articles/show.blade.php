@@ -10,7 +10,7 @@
         @endif
         <h1 class="mb-8 text-4xl font-semibold text-sky-800">{{ $article->name }}</h1>
 
-        <div class="mb-8 prose md:prose-lg max-w-none">
+        <div class="mb-8 prose md:prose-lg max-w-none prose-a:text-sky-700 hover:prose-a:text-orange-700">
             {!! $article->content !!}
         </div>
     </div>
