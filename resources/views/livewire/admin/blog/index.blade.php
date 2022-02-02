@@ -23,6 +23,7 @@
             @endcan
         </div>
 
+        @can('blog update')
         <div class="mb-8 border-b border-slate-300">
             <ul class="flex flex-wrap -mb-px" role="tablist">
                 <li class="mr-2" role="presentation">
@@ -39,14 +40,17 @@
                 </li>
             </ul>
         </div>
+        @endcan
 
         <div>
             <div aria-labelledby="blog-overview-tab" class="{{ $selectedTab === "blog-overview-tab" ? 'block' : 'hidden' }}" role="tabpanel">
                 @livewire('admin.blog.show')
             </div>
-            <div aria-labelledby="blog-settings-tab" class="{{ $selectedTab === "blog-settings-tab" ? 'block' : 'hidden' }}" role="tabpanel">
-                @livewire('admin.blog.edit')
-            </div>
+            @can('blog update')
+                <div aria-labelledby="blog-settings-tab" class="{{ $selectedTab === "blog-settings-tab" ? 'block' : 'hidden' }}" role="tabpanel">
+                    @livewire('admin.blog.edit')
+                </div>
+            @endcan
         </div>
 
         <script>
