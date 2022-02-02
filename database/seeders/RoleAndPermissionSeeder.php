@@ -15,6 +15,14 @@ class RoleAndPermissionSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         $permissions = [
+            'articles create',
+            'articles delete',
+            'articles read',
+            'articles update',
+
+            'blog read',
+            'blog update',
+
             'categories create',
             'categories delete',
             'categories read',
@@ -44,17 +52,30 @@ class RoleAndPermissionSeeder extends Seeder
         ];
 
         foreach ($permissions as $permission) {
-            Permission::create(['name' => $permission]);
+            if (!Permission::where('name', '=', $permission)->exists()) {
+                Permission::create(['name' => $permission]);
+            }
         }
         // =======================================================================
 
-        $admin = Role::create(['name' => 'admin']);
-        $member = Role::create(['name' => 'member']);
-        Role::create(['name' => 'super-admin']);
+
+        if (!Role::where('name', '=', 'admin')->exists()) {
+            $admin = Role::create(['name' => 'admin']);
+        }
+        if (!Role::where('name', '=', 'member')->exists()) {
+            $member = Role::create(['name' => 'member']);
+        }
+        if (!Role::where('name', '=', 'super-admin')->exists()) {
+            Role::create(['name' => 'super-admin']);
+        }
 
         // =======================================================================
 
         $admin_permissions = [
+            'articles read',
+
+            'blog read',
+
             'categories read',
 
             'pages read',
@@ -76,7 +97,13 @@ class RoleAndPermissionSeeder extends Seeder
             'sites update',
         ];
 
-        $admin->syncPermissions($admin_permissions);
-        $member->syncPermissions($member_permissions);
+        if (Role::where('name', '=', 'admin')->exists()) {
+            $admin = Role::findByName('admin');
+            $admin->syncPermissions($admin_permissions);
+        }
+        if (Role::where('name', '=', 'member')->exists()) {
+            $member = Role::findByName('member');
+            $member->syncPermissions($member_permissions);
+        }
     }
 }

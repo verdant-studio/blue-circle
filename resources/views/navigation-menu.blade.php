@@ -37,6 +37,11 @@
                             {{ __('pages._plural') }}
                         </x-jet-nav-link>
                     @endcan
+                    @can('blog read')
+                        <x-jet-nav-link href="{{ route('admin.blog.index') }}" :active="request()->routeIs('admin.blog.index')">
+                            {{ __('blog._singular') }}
+                        </x-jet-nav-link>
+                    @endcan
                     @can('settings read')
                         <x-jet-nav-link href="{{ route('admin.settings.show') }}" :active="request()->routeIs('admin.settings.show')">
                             {{ __('settings._plural') }}
@@ -188,6 +193,11 @@
             @can('pages read')
                 <x-jet-responsive-nav-link href="{{ route('admin.pages.index') }}" :active="request()->routeIs('admin.pages.index')">
                     {{ __('pages._plural') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            @can('blog read')
+                <x-jet-responsive-nav-link href="{{ route('admin.blog.index') }}" :active="request()->routeIs('admin.blog.index')">
+                    {{ __('blog._singular') }}
                 </x-jet-responsive-nav-link>
             @endcan
             @can('settings read')

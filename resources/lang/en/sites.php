@@ -14,7 +14,7 @@ return [
     'block-update' => 'Update block',
     'category' => 'Category',
     'category-select' => 'Choose a category',
-    'content' => 'Inhoud',
+    'content' => 'Content',
     'description' => 'Description',
     'description-max' => 'Max 160 characters',
     'icons' => [

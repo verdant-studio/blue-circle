@@ -5,7 +5,7 @@
 </x-slot>
 
 <div class="py-12">
-    <div class="mx-auto max-w-7xl px-4">
+    <div class="px-4 mx-auto max-w-7xl">
 
         <div class="flex justify-start mb-8">
             <x-button-link href="{{ route('admin.sites.index') }}" outline>
@@ -28,18 +28,18 @@
                         </x-message-error>
                     @endif
 
-                    <div class="mb-8">
+                    <div class="mb-8 md:w-3/4">
                         <label class="block mb-3 cursor-pointer" for="name">{{ __('sites.name') }}</label>
                         <input id="name" name="name" type="text" class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required wire:model="name">
                     </div>
 
-                    <div class="mb-8">
+                    <div class="mb-8 md:w-3/4">
                         <label class="block cursor-pointer" for="description">{{ __('sites.description') }}</label>
                         <p class="block mb-3 text-sm italic text-slate-700">{{ __('sites.description-max') }}</p>
                         <input id="description" name="description" type="text" class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" wire:model="description">
                     </div>
 
-                    <div class="mb-8">
+                    <div class="mb-8 md:w-3/4">
                         <label class="block mb-3 cursor-pointer" for="category">{{ __('sites.category') }}</label>
                         <select autofocus class="block w-full mt-2 rounded-md shadow-sm border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" id="category" name="category" wire:model.defer="category">
                             @foreach ($categories as $category)

@@ -160,6 +160,7 @@ return [
         'description' => 'omschrijving',
         'messageContent' => 'bericht',
         'name' => 'naam',
+        'photo' => 'foto',
         'siteDescription' => 'site omschrijving',
     ],
 

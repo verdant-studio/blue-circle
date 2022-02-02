@@ -37,4 +37,5 @@ return [
     'saved' => 'Saved',
     'search' => 'Search',
     'update' => 'Update',
+    'uploading' => 'Uploading'
 ];
