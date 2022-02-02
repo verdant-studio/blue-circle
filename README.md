@@ -22,3 +22,17 @@ php artisan serve
 # compile front-end assets
 npm run watch
 ```
+
+## Deployment
+
+```sh
+dep deploy
+```
+
+### Migrations
+
+Make sure you are inside the deployer/current directory and run:
+
+```sh
+php artisan migrate
+```
