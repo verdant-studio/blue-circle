@@ -9,7 +9,7 @@ use Illuminate\Support\Arr;
     </x-slot>
 
     <div class="px-4 mx-auto max-w-7xl">
-        <h1 class="mb-8 text-4xl font-semibold text-sky-800">{{ $site->name }}</h1>
+        <h1 class="mb-8 text-2xl md:text-3xl lg:text-4xl font-semibold text-sky-800">{{ $site->name }}</h1>
         @if ($site->intro)
             <div class="p-4 mb-8 bg-white rounded-md shadow-sm md:w-3/4">{{ $site->intro}}</div>
         @endif

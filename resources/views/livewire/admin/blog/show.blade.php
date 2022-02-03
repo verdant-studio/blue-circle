@@ -28,7 +28,7 @@
                         {{ $article->user->name }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        {{ $article->created_at->format('j F, Y') }}
+                        {{ Carbon\Carbon::parse($article->created_at)->translatedFormat('d F Y') }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         @can('articles update')

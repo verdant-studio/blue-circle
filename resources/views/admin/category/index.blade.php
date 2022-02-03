@@ -45,7 +45,7 @@
                             {{ count($category->sites) }}</span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            {{ $category->created_at->format('j F, Y') }}
+                            {{ Carbon\Carbon::parse($category->created_at)->translatedFormat('d F Y') }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             @can('categories update')

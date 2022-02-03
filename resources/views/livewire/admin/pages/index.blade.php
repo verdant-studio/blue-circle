@@ -40,7 +40,7 @@
                             {{ $page->name }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            {{ $page->created_at->format('j F, Y') }}
+                            {{ Carbon\Carbon::parse($page->created_at)->translatedFormat('d F Y') }}
                         </td>
                         <td class="px-6 py-4 align-middle whitespace-nowrap">
                             @can('pages update')

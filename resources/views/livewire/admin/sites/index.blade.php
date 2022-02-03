@@ -52,7 +52,7 @@
                             {{ $site->user->name }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            {{ $site->created_at->format('j F, Y') }}
+                            {{ Carbon\Carbon::parse($site->created_at)->translatedFormat('d F Y') }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             @can('sites update')

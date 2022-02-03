@@ -8,9 +8,13 @@
         @if ($article->photo)
             <img alt="{{ $article->name }}" src="{{ url('storage/' . $article->photo) }}" class="w-full mb-8">
         @endif
-        <h1 class="mb-8 text-4xl font-semibold text-sky-800">{{ $article->name }}</h1>
 
-        <div class="mb-8 prose md:prose-lg max-w-none prose-a:text-sky-700 hover:prose-a:text-orange-700">
+        <div class="mb-8">
+            <h1 class="mb-2 text-2xl font-semibold md:text-3xl lg:text-4xl text-sky-800">{{ $article->name }}</h1>
+            {{ Carbon\Carbon::parse($article->created_at)->translatedFormat('d F Y') }}
+        </div>
+
+        <div class="mb-8 prose md:prose-lg max-w-none hover:prose-a:text-sky-700 prose-a:text-orange-700">
             {!! $article->content !!}
         </div>
     </div>

@@ -22,6 +22,10 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+
+        @php
+            \Carbon\Carbon::setLocale(app()->getLocale());
+        @endphp
     </head>
     <body class="flex flex-col min-h-screen antialiased bg-slate-50">
         @livewire('front.navigation-menu')

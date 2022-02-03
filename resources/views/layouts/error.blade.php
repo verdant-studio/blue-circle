@@ -19,13 +19,17 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+
+        @php
+            \Carbon\Carbon::setLocale(app()->getLocale());
+        @endphp
     </head>
     <body class="flex flex-col min-h-screen antialiased bg-slate-50">
         @livewire('front.navigation-menu')
 
         <main class="flex-1">
             <div class="px-4 mx-auto max-w-7xl">
-                <h1 class="mb-8 text-4xl font-semibold text-sky-800">{{ $title }}</h1>
+                <h1 class="mb-8 text-2xl font-semibold md:text-3xl lg:text-4xl text-sky-800">{{ $title }}</h1>
                 <div class="prose md:prose-lg max-w-none">
                     <p>{{ $description }}</p>
                 </div>

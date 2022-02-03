@@ -39,7 +39,7 @@
                             @endforeach
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            {{ $user->created_at->format('j F, Y') }}
+                            {{ Carbon\Carbon::parse($user->created_at)->translatedFormat('d F Y') }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <a class="inline-block text-green-700 hover:text-green-900" href="{{ route('admin.users.edit', ['user' => $user]) }}">
