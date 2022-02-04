@@ -25,6 +25,7 @@ module.exports = {
         'bg-fuchsia-700',
         'bg-pink-700',
         'bg-rose-700',
+
         'text-red-700',
         'text-orange-700',
         'text-amber-700',

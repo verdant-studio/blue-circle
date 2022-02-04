@@ -1,7 +1,3 @@
-@php
-use Illuminate\Support\Arr;
-@endphp
-
 <div>
     <x-slot name="meta">
         <title>{{ $site->name . ' | ' . config('app.name', 'Laravel') }}</title>
@@ -9,7 +5,7 @@ use Illuminate\Support\Arr;
     </x-slot>
 
     <div class="px-4 mx-auto max-w-7xl">
-        <h1 class="mb-8 text-2xl md:text-3xl lg:text-4xl font-semibold text-sky-800">{{ $site->name }}</h1>
+        <h1 class="mb-8 text-2xl font-semibold md:text-3xl lg:text-4xl text-sky-800">{{ $site->name }}</h1>
         @if ($site->intro)
             <div class="p-4 mb-8 bg-white rounded-md shadow-sm md:w-3/4">{{ $site->intro}}</div>
         @endif
@@ -19,7 +15,7 @@ use Illuminate\Support\Arr;
                 @foreach ($blocks as $block)
                     @if ($loop->index === 8)
                         </div>
-                        @livewire('front.components.affiliate-products', ['site' => $site])
+                        @livewire('front.components.affiliate-products', ['site' => $site, 'theme' => $theme])
                         <div class="grid gap-4 mb-8 md:grid-cols-2 lg:grid-cols-4">
                     @endif
                     <div class="flex flex-col h-full overflow-hidden bg-white rounded-md shadow-md">
@@ -81,7 +77,7 @@ use Illuminate\Support\Arr;
                     </div>
                 @endforeach
             </div>
-            @livewire('front.components.affiliate-products', ['site' => $site])
+            @livewire('front.components.affiliate-products', ['site' => $site, 'theme' => $theme])
         @endif
 
     </div>

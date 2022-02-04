@@ -27,7 +27,7 @@ class Show extends Component
             $blocks = Block::where('site_id', $site->id)->orderBy('position')->get();
             $theme = Theme::where('id', $site->theme_id)->first();
 
-            return view('livewire.front.sites.show', compact('site', 'blocks', 'theme'))->layout('layouts.front');
+            return view('livewire.front.sites.show', compact('blocks', 'site', 'theme'))->layout('layouts.front');
         }
 
         if ($page) {
