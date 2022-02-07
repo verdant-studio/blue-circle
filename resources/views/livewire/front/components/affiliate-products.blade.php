@@ -40,7 +40,7 @@
                     @foreach ($articles as $article)
                     <a class="flex space-y-1 overflow-hidden text-{{ $theme->color }} rounded hover:text-sky-800" href="/blog/{{ $article->slug }}">
                         @if ($article->photo)
-                            <img alt="{{ $article->name }}" src="{{ url('storage/' . $article->photo) }}" class="w-16 h-16 mr-2 rounded">
+                            <img alt="{{ $article->name }}" src="{{ url('storage/' . $article->photo) }}" class="object-cover w-16 h-16 mr-2 rounded">
                         @endif
                         <div>
                             {{ $article->name }}

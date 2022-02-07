@@ -77,19 +77,8 @@
     </div>
 
     @section('scripts')
-        <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
-        <script>
-            ClassicEditor
-            .create(document.querySelector('#editor'))
-            .then(editor => {
-                editor.model.document.on('change:data', () => {
-                    @this.set('content', editor.getData());
-                });
-            })
-            .catch(error => {
-                console.error(error);
-            });
-        </script>
+        <script src="{{ asset('js/ckeditor.js') }}"></script>
+        @include('components.ckeditor')
     @stop
 </div>
 
