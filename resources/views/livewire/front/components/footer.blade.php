@@ -23,4 +23,9 @@
             </div>
         </div>
     </div>
+    <div class="bg-sky-900">
+        <div class="p-4 mx-auto text-center text-white max-w-7xl">
+            <small class="text-sm">Powered by <a class="hover:text-sky-200" href="https://verdant.studio/portfolio/blue-circle/" target="_blank" rel="noreferrer noopener">Blue Circle</a></small>
+        </div>
+    </div>
 </footer>
